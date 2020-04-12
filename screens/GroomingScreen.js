@@ -5,6 +5,7 @@ import styles from '../assets/styles/styles';
 import Login from '../components/Login';
 import ContactDetails from '../components/ContactDetails';
 import LoginOtp from '../components/LoginOtp';
+import GroomingConfirmation from '../components/GroomingConfirmation';
 
 
 export default function GroomingScreen() {
@@ -14,7 +15,8 @@ export default function GroomingScreen() {
                 <View style={styles.Wrappercontainer}>
                     {/* <Login/> */}
                     {/* <ContactDetails/> */}
-                    <LoginOtp></LoginOtp>
+                    {/* <LoginOtp></LoginOtp> */}
+                    <GroomingConfirmation/>
                 </View>
        
             );
