@@ -1,30 +1,22 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ScrollView,Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Card, CardItem, Text, Body } from "native-base";
+import styles from '../assets/styles/styles';
+import Login from '../components/Login';
+import ContactDetails from '../components/ContactDetails';
+import LoginOtp from '../components/LoginOtp';
 
 
 export default function GroomingScreen() {
+    
     return (
-        <View style={styles.container}>
-            <Text>
-            Components:
-            1. Service ( combo and individual)
-            2. select service info
-            3. grooming select date
-            4. grooming select time
-            5 Login
-            6. Contact Number
-            7. Login Otp
-            8. Grooming Confirmation
-            9. Grooming Complete payment
-            10. Grooming general otp screen (start , end and payment)
-            </Text>
-        </View>
+       
+                <View style={styles.Wrappercontainer}>
+                    {/* <Login/> */}
+                    {/* <ContactDetails/> */}
+                    <LoginOtp></LoginOtp>
+                </View>
+       
             );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-    }
-})

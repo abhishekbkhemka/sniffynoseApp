@@ -6,10 +6,10 @@ export default function AppointmentsScree() {
     return (
         <View style={styles.container}>
             <Text>
-            Components:
-            1. Appointment Card
-            2. Appointment Details
-            3. Appointment rate and review
+                Components:
+                1. Appointment Card
+                2. Appointment Details
+                3. Appointment rate and review
             </Text>
         </View>
     );
