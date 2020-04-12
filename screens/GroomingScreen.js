@@ -6,6 +6,7 @@ import Login from '../components/Login';
 import ContactDetails from '../components/ContactDetails';
 import LoginOtp from '../components/LoginOtp';
 import GroomingConfirmation from '../components/GroomingConfirmation';
+import SelectServiceInfo from '../components/SelectServiceInfo';
 
 
 export default function GroomingScreen() {
@@ -16,7 +17,8 @@ export default function GroomingScreen() {
                     {/* <Login/> */}
                     {/* <ContactDetails/> */}
                     {/* <LoginOtp></LoginOtp> */}
-                    <GroomingConfirmation/>
+                    {/* <GroomingConfirmation/> */}
+                    <SelectServiceInfo/>
                 </View>
        
             );

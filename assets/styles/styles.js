@@ -200,7 +200,7 @@ export default StyleSheet.create({
             alignItems:'center',
          },
 
-         
+
          confirmbtn:{
           width:"100%",
           backgroundColor: colors.error,
@@ -677,15 +677,15 @@ export default StyleSheet.create({
       planmodaltext:{
         zIndex:99,
         borderWidth:1,
-        borderColor:'#d3d3d3',
-        color:'#8d8d8d',
-        paddingLeft:5,
-        paddingRight:5,
-        paddingTop:5,
-        paddingBottom:5,
-        width:59,
+        borderColor:'#222ba8',
+        color:'#222ba8',
+        paddingLeft:10,
+        paddingRight:10,
+        paddingTop:7,
+        paddingBottom:7,
+       
         borderRadius:38,
-        fontSize:12,
+        fontSize:14,
         textAlign:'center',
         position:'absolute',
         right:12,
