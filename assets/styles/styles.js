@@ -95,6 +95,21 @@ export default StyleSheet.create({
         bottom: 90, 
       },
 
+      containerCalendar:{
+        flex:1,
+        justifyContent: 'flex-end',
+         alignItems: 'center',
+        position:'absolute',
+        bottom:100,
+        left:20,
+      },
+      calendar:{
+        width: dimensions.fullWidth - 40,
+        borderRadius:6,
+        marginBottom: 20,
+        
+      },
+
       formWrapper:{
         width:"100%",
         backgroundColor: '#ffffff',
