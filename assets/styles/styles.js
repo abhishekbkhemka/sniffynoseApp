@@ -343,6 +343,17 @@ export default StyleSheet.create({
           paddingLeft:10,
         },
 
+        headingWrapper: {
+          width:'100%',
+          flex:1,
+        },
+        headingMain:{
+          width:'100%',
+          fontSize:20,
+          lineHeight:28,
+          paddingLeft:10,
+          textAlign:'left',
+        },
           inputBLock:{
               borderBottomWidth:2,
               marginBottom:padding.sm,
@@ -746,6 +757,17 @@ export default StyleSheet.create({
           backgroundColor: 'transparent',
           padding: 10,
           borderRadius:20,
+      },
+
+      buttontertiary:{
+        width: dimensions.fullWidth - 80,
+        marginBottom:20,
+        borderColor:'#d3d3d3',
+        borderWidth:1,
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        padding: 10,
+        borderRadius:20,
       },
       GdoneImage:{
         width:154,

@@ -8,6 +8,7 @@ import LoginOtp from '../components/LoginOtp';
 import GroomingConfirmation from '../components/GroomingConfirmation';
 import SelectServiceInfo from '../components/SelectServiceInfo';
 import GroomingSelectDate from '../components/GroomingSelectDate';
+import GrommingSelectTime from '../components/GrommingSelectTime';
 
 
 export default function GroomingScreen() {
@@ -19,8 +20,8 @@ export default function GroomingScreen() {
                     {/* <ContactDetails/> */}
                     {/* <LoginOtp></LoginOtp> */}
                     {/* <GroomingConfirmation/> */}
-                    <GroomingSelectDate></GroomingSelectDate>
-                   
+                    {/* <GroomingSelectDate></GroomingSelectDate> */}
+                   <GrommingSelectTime></GrommingSelectTime>
                 </View>
        
             );
