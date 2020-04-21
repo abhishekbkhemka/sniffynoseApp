@@ -19,9 +19,9 @@ export default function GroomingScreen() {
                     {/* <Login/> */}
                     {/* <ContactDetails/> */}
                     {/* <LoginOtp></LoginOtp> */}
-                    {/* <GroomingConfirmation/> */}
+                    <GroomingConfirmation></GroomingConfirmation>
                     {/* <GroomingSelectDate></GroomingSelectDate> */}
-                   <GrommingSelectTime></GrommingSelectTime>
+                   {/* <GrommingSelectTime></GrommingSelectTime> */}
                 </View>
        
             );

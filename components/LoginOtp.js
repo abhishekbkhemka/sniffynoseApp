@@ -22,7 +22,7 @@ export default class LoginOtp extends Component {
          return (
            <View></View>
          );
-       }
+       }  
         return (
           <Card transparent style={styles.bottomView}>
                   <CardItem style={styles.cardWrapper}>
