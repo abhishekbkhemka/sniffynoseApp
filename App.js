@@ -8,6 +8,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
+import GroomingScreen from "./screens/GroomingScreen";
+import HomeScreen from "./screens/HomeScreen";
 
 const Stack = createStackNavigator();
 
@@ -49,11 +51,20 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <NavigationContainer ref={containerRef} initialState={initialNavigationState}>
-          <Stack.Navigator>
-            <Stack.Screen name="Root" component={BottomTabNavigator} />
-          </Stack.Navigator>
-        </NavigationContainer>
+
+          <NavigationContainer>
+              <Stack.Navigator initialRouteName="Home">
+                  <Stack.Screen name="Home" component={HomeScreen} />
+                  <Stack.Screen name="Grooming" component={GroomingScreen} />
+              </Stack.Navigator>
+          </NavigationContainer>
+
+
+        {/*<NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}
+          {/*<Stack.Navigator>*/}
+            {/*<Stack.Screen name="Root" component={BottomTabNavigator} />*/}
+          {/*</Stack.Navigator>*/}
+        {/*</NavigationContainer>*/}
       </View>
     );
   }

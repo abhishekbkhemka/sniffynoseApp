@@ -1,26 +1,18 @@
 import * as React from 'react';
-import { ScrollView,Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 import { Card, CardItem, Text, Body } from "native-base";
 import styles from '../assets/styles/styles';
-import Login from '../components/Login';
-import ContactDetails from '../components/ContactDetails';
-import LoginOtp from '../components/LoginOtp';
-import GroomingConfirmation from '../components/GroomingConfirmation';
-import SelectServiceInfo from '../components/SelectServiceInfo';
+
+import Grooming from '../components/Grooming';
 
 
-export default function GroomingScreen() {
-    
+export default function GroomingScreen({ navigation, route }) {
+
+
     return (
-       
-                <View style={styles.Wrappercontainer}>
-                    {/* <Login/> */}
-                    {/* <ContactDetails/> */}
-                    {/* <LoginOtp></LoginOtp> */}
-                    {/* <GroomingConfirmation/> */}
-                    <SelectServiceInfo/>
-                </View>
-       
+
+                <Grooming navigation={navigation}></Grooming>
+
             );
 }
 
