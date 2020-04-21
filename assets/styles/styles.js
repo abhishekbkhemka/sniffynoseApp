@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {colors, fonts, padding, dimensions} from './base'
+import { AuthSession } from 'expo';
 export default StyleSheet.create({
 
     
@@ -29,7 +30,8 @@ export default StyleSheet.create({
       Wrappercontainer:{
         width: dimensions.fullWidth,
         height: dimensions.fullHeight,
-        backgroundColor : colors.bg,
+        // backgroundColor : colors.bg,
+        backgroundColor:'#f6f6ff',
         paddingTop:padding.xl,
         paddingBottom:padding.xl,
       },
@@ -93,6 +95,21 @@ export default StyleSheet.create({
         marginRight:20,
         position: 'absolute', 
         bottom: 90, 
+      },
+
+      containerCalendar:{
+        flex:1,
+        justifyContent: 'flex-end',
+         alignItems: 'center',
+        position:'absolute',
+        bottom:100,
+        left:20,
+      },
+      calendar:{
+        width: dimensions.fullWidth - 40,
+        borderRadius:6,
+        marginBottom: 20,
+        
       },
 
       formWrapper:{
@@ -328,6 +345,17 @@ export default StyleSheet.create({
           paddingLeft:10,
         },
 
+        headingWrapper: {
+          width:'100%',
+          flex:1,
+        },
+        headingMain:{
+          width:'100%',
+          fontSize:20,
+          lineHeight:28,
+          paddingLeft:10,
+          textAlign:'left',
+        },
           inputBLock:{
               borderBottomWidth:2,
               marginBottom:padding.sm,
@@ -659,6 +687,7 @@ export default StyleSheet.create({
         width:dimensions.fullWidth - 32,
         height:dimensions.fullHeight - 130,
       },
+
       blockWrappergPlan:{
         position:'relative',
         width:'100%',
@@ -683,7 +712,6 @@ export default StyleSheet.create({
         paddingRight:10,
         paddingTop:7,
         paddingBottom:7,
-       
         borderRadius:38,
         fontSize:14,
         textAlign:'center',
@@ -702,16 +730,18 @@ export default StyleSheet.create({
         left:0,
         bottom:0,
       },
+
       serviceMiddleWrapper:{
          flex:1, 
          width:'100%',
          paddingLeft:16,
-         backgroundColor:'#f6f6ff'
+         backgroundColor:'#f6f6ff',
        },
 
       heightSpacing:{
         height:70,
       },
+
       paddingWrapper:{
         paddingLeft:16,
         paddingRight:16,
@@ -731,6 +761,17 @@ export default StyleSheet.create({
           backgroundColor: 'transparent',
           padding: 10,
           borderRadius:20,
+      },
+
+      buttontertiary:{
+        width: dimensions.fullWidth - 80,
+        marginBottom:20,
+        borderColor:'#d3d3d3',
+        borderWidth:1,
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        padding: 10,
+        borderRadius:20,
       },
       GdoneImage:{
         width:154,
@@ -822,6 +863,113 @@ export default StyleSheet.create({
       rightSearchFooter:{
         position:'absolute',
         right: padding.xl + padding.xl + padding.md,
+      },
+
+      confirmblock:{
+        flex:1, 
+        width: dimensions.fullWidth - 30,  
+        flexDirection: 'row', 
+        backgroundColor: '#fff',
+        marginLeft:15,
+        marginRight:15,
+        marginBottom:15,
+        shadowOffset:{ width: 20, height: 20, },
+        shadowColor: 'black',
+        shadowOpacity: 1.0,
+        borderRadius:6,
+      },
+
+      dateblocktext: {
+        color:'#222ba8'
+      },
+
+      confirmdate: {
+        width: 50,
+        height:50,
+        backgroundColor:'#666',
+      },
+
+      appointdateblock:{
+        backgroundColor:'#f2f2f2',
+        padding:10,
+        width:60,
+      
+       },
+
+       appointmentproduct: {
+        //  backgroundColor: 'red',
+         padding:10,
+       },
+
+       appointmentprice: {
+        // backgroundColor: 'green',
+        padding:10,
+        position:'absolute',
+        right:0,
+        flex:1,
+        justifyContent:'flex-end',
+        alignItems:'flex-end',
+      },
+      dateblocknumber:{
+        fontSize:32,
+        fontWeight: 'bold',
+        color:'#222ba8',
+      },
+      dateblocktext:{
+        textAlign:'center',
+        fontWeight: 'bold',
+        color:'#222ba8',
+        fontSize:12,
+      },
+      appointmentproductname:{
+        fontSize:16,
+        color:'#231f20',
+        marginBottom:15,
+      },
+
+      appointmentproducttime: {
+        fontSize:14,
+        color:'#222ba8',
+      },
+      deleteappointmenticon:{
+        marginBottom: 15,
+      },
+
+      productprice:{
+        color:'#8d8d8d',
+        fontSize:11,
+        borderWidth:1,
+        borderRadius:20,
+        borderColor:'#8d8d8d',
+        paddingLeft:10,
+        paddingRight:10,
+        paddingTop:7,
+        paddingBottom:7,
+      },
+      mb20:{
+        marginBottom: 20,
+      },
+      picker:{
+          borderBottomColor:'#e1e1e1',
+          borderBottomWidth:2,
+          width: '100%',
+          marginBottom:10,
+         },
+
+      selectpicker:{
+        height:35,
+        color:'#a9a9b3',
+      },
+      years:{
+        position:'absolute',
+        right:0,
+        bottom:16,
+        fontSize:16,
+        color:'#8d8d8d',
+      },
+      mainwrapper:{
+       width:'98%' , marginLeft: 10,
       }
+
 
 });  

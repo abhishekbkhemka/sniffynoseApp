@@ -8,8 +8,8 @@ export default function GroomingScreen({ navigation, route }) {
 
     return (
 
-                <Grooming navigation={navigation}></Grooming>
+        <Grooming navigation={navigation}></Grooming>
 
-            );
+    );
 }
 
