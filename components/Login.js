@@ -18,6 +18,8 @@ export default class Login extends Component {
         })
         this.setState({ loading: false })
       }
+
+
     render() {
         if (this.state.loading) {
             return (
@@ -43,7 +45,7 @@ export default class Login extends Component {
                             <Text style={styles.TextStyle}> Continue with Google</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.PhoneStyle} activeOpacity={0.5} onPress={this._onContinueWithNumber}>
+                        <TouchableOpacity style={styles.PhoneStyle} activeOpacity={0.5} onPress={()=>this.props.continueWithContactNumber()}>
                             <Image
                                 source={require('../assets/images/phone.png')} style={styles.ImageIconStyle} />
                             <Text style={styles.TextStylephone}>Continue with Contact Number</Text>
@@ -51,7 +53,7 @@ export default class Login extends Component {
                     </Body>
                 </CardItem>
                     <View style={{flex:1, alignItems:'center'}}>
-                    <Button style={[styles.secondarybtn,styles.borderbtnSecondary]}>
+                    <Button style={[styles.secondarybtn,styles.borderbtnSecondary]} onPress={() => this.props.closeMe()}>
                         <Text>Close</Text>
                     </Button>
                 </View>

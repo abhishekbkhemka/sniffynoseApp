@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {StyleSheet, View} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -15,41 +16,11 @@ export default function BottomTabNavigator({ navigation, route }) {
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
   navigation.setOptions({ headerTitle: getHeaderTitle(route) });
 
+
   return (
-    <BottomTab.Navigator initialRouteName={INITIAL_ROUTE_NAME}>
-      <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          title: 'Get Started',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-code-working" />,
-        }}
-      />
-      <BottomTab.Screen
-        name="Links"
-        component={LinksScreen}
-        options={{
-          title: 'Resources',
-          tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
-        }}
-      />
-        <BottomTab.Screen
-            name="Grooming"
-            component={GroomingScreen}
-            options={{
-                title: 'Grooming',
-                tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
-            }}
-        />
-        <BottomTab.Screen
-            name="Appointments"
-            component={AppointmentsScreen}
-            options={{
-                title: 'Appointments',
-                tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="md-book" />,
-            }}
-        />
-    </BottomTab.Navigator>
+    <View style={styles.container}>
+      <GroomingScreen/>
+    </View>
   );
 }
 
@@ -67,3 +38,10 @@ function getHeaderTitle(route) {
           return 'Links to learn more';
   }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff'
+    }
+})
