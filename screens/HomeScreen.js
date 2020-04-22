@@ -44,8 +44,10 @@ export default function HomeScreen({ navigation, route }) {
                 </Col>
                 <Col style={styles.gridColDashboard}>
                 <TouchableOpacity>
-                  <Thumbnail square size={125} source={groomingImage}  style={styles.imageGridDashboard}/> 
-                  <Text  style={styles.textGrid}>Grooming</Text>
+                  <View style={styles.groomingbg}>
+                  <Thumbnail square size={125} source={groomingImage}  style={styles.groomingthumbnail}/> 
+                  </View>
+                  <Text  style={styles.textGrid}>Pet Products</Text>
                   </TouchableOpacity>
                 </Col>
             </Row>
