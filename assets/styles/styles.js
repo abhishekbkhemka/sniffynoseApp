@@ -26,6 +26,34 @@ export default StyleSheet.create({
       heightExceptFooter:{
         marginBottom: 90,
       },
+
+      header:{
+       backgroundColor:'#222ba8',
+       borderBottomRightRadius:50,
+       borderBottomLeftRadius:50,
+       height:65,
+      },
+      headetext:{
+          color:'#fff',
+          fontSize:16,
+          paddingTop:17,
+          paddingLeft:17,
+           width:'100%'
+         },
+
+         headernotification:{
+            position:'absolute',
+            textAlign:'center',
+             right: 30,
+             paddingTop:4,
+             top:16,
+              width:30,
+              height:30,
+              backgroundColor:'#fff',
+              fontWeight:'bold',
+              borderRadius:30,
+              color:'#000'
+         },
       
       Wrappercontainer:{
         width: dimensions.fullWidth,
@@ -737,7 +765,7 @@ export default StyleSheet.create({
       footer:{
         position:'absolute',
         width:dimensions.fullWidth,
-        backgroundColor:'#f6f6ff',
+        // backgroundColor:'#f6f6ff',
         paddingTop:2, 
         left:0,
         bottom:0,
@@ -996,6 +1024,30 @@ export default StyleSheet.create({
         width:88,
         height:80,
       },
+
+      confirmblockAction:{
+         flexDirection:'row',
+          borderColor:'#eee', // if you need 
+          borderWidth:1,
+          shadowColor: '#eee',
+          overflow:'hidden',
+          shadowRadius: 20,
+          shadowOpacity: 50,
+          backgroundColor:'#fff',
+          top:-10,
+          borderRadius:6,
+      },
+
+      appointmentprodctname:{
+        fontSize:14, 
+        color:'#8d8d8d'
+      },
+
+      confirmproductwrapper:{
+        width:dimensions.fullWidth - 40,
+        marginLeft:20,
+      }
+
 
 
 });  
