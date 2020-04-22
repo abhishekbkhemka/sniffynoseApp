@@ -8,6 +8,8 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
+import { SplashScreen } from 'expo';
+
 
 const Stack = createStackNavigator();
 
