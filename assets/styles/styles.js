@@ -46,7 +46,18 @@ export default StyleSheet.create({
         height: 61,
      },
 
+     logosplash:{
+      width:106,
+      height:84,
+     },
+     splashwrapper:{
+      flex:1, width: dimensions.fullWidth,
+      height: dimensions.fullHeight, backgroundColor:'#f7d82f',
+     },
+
       centerBlock: {
+        width:'100%',
+        height:'100%',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',     
@@ -65,11 +76,12 @@ export default StyleSheet.create({
         bottom: 0
      },
      Imagebg:{
-        resizeMode: 'contain',
+        resizeMode: 'cover',
+        flex:1,
         width: dimensions.fullWidth,
         height: dimensions.fullHeight,
-        bottom: 0,
-        position: 'absolute',
+        position:'relative',
+        
      },
      
      ImageUploaded:{
