@@ -8,6 +8,7 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
+import BottomMenu from './components/BottomMenu';
 
 const Stack = createStackNavigator();
 
@@ -63,6 +64,7 @@ export default function App(props) {
             {/*<Stack.Screen name="Root" component={BottomTabNavigator} />*/}
           {/*</Stack.Navigator>*/}
         {/*</NavigationContainer>*/}
+        <BottomMenu></BottomMenu>
       </View>
     );
   }

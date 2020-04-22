@@ -10,21 +10,27 @@ import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
 
 import { MonoText } from '../components/StyledText';
+import BottomMenu from '../components/BottomMenu';
+import AdBanner from '../components/AdBanner';
+import TopQuickAction from '../components/TopQuickAction';
 
 export default function HomeScreen({ navigation, route }) {
   return (
+    <View style={{flex:1 }}>
+       <TopQuickAction></TopQuickAction>
+            <ScrollView 
+                contentContainerStyle={{ 
+                flexGrow: 1, 
+                flexDirection: 'column', 
+                justifyContent: 'flex-end'
+            }}>
+             <View>
+              
+             <AdBanner></AdBanner> 
+               </View>     
 
-    <ScrollView 
-    contentContainerStyle={{ 
-    flexGrow: 1, 
-    flexDirection: 'column', 
-    justifyContent: 'flex-end'
-  }}>
-
-      
-     <View>
       <View style={styles.footerWrapperGrid}>
-               
+          
           <Button  transparent>
               <Thumbnail  source={homeIcon} style={styles.HomeIcon}/>
           </Button>
@@ -54,11 +60,11 @@ export default function HomeScreen({ navigation, route }) {
          </Grid>
                
            </View>
-         
-         
-    </View>
+     
+     </ScrollView>
+      </View>
+    
   
-  </ScrollView>
     // <View style={styles.container}>
     //   <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
     //     <View style={styles.welcomeContainer} >
