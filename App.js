@@ -53,7 +53,9 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
           <NavigationContainer>
-              <Stack.Navigator initialRouteName="Home">
+              <Stack.Navigator initialRouteName="Home" screenOptions={{
+                  headerShown: false
+              }}>
                   <Stack.Screen name="Home" component={HomeScreen} />
                   <Stack.Screen name="Grooming" component={GroomingScreen} />
               </Stack.Navigator>
