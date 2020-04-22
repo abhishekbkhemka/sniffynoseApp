@@ -981,7 +981,21 @@ export default StyleSheet.create({
       },
       mainwrapper:{
        width:'98%' , marginLeft: 10,
-      }
+      },
+
+      groomingbg:{
+        backgroundColor:'#cdf0f3',
+        width:'100%',
+        height:119,
+        padding:15,
+        borderRadius:12,
+        justifyContent:'center',
+        alignItems:'center'
+      },
+      groomingthumbnail:{
+        width:88,
+        height:80,
+      },
 
 
 });  
