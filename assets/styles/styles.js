@@ -137,6 +137,18 @@ export default StyleSheet.create({
         bottom: 90, 
       },
 
+      bottomViewModal: {
+        width: dimensions.fullWidth - 40,
+        flex:1,
+       justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:'5%',
+         marginLeft:20,
+        marginRight:20,
+        position: 'absolute', 
+        bottom: 10, 
+      },
+
       containerCalendar:{
         flex:1,
         justifyContent: 'flex-end',
@@ -240,12 +252,26 @@ export default StyleSheet.create({
 
       ButtonWrapper:{
         width:"100%",
-        flex:1,
+      },
+      fullwidth:{
+          width:'100%',
       },
 
       paddingtopbottomSpacing:{
         paddingTop:18,
         paddingBottom:18,
+      },
+      buttonprimaryWrapper:{
+          width:dimensions.fullWidth - 40,
+          paddingLeft:15,
+        paddingRight:10,
+        marginBottom:20,
+          
+      },
+      buttonprimarybtn:{
+        width:'96%',
+        
+       
       },
       
          primarybtn:{
@@ -1046,6 +1072,47 @@ export default StyleSheet.create({
       confirmproductwrapper:{
         width:dimensions.fullWidth - 40,
         marginLeft:20,
+      },
+
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22,
+      },
+      modalView: {
+        margin: 0,
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 5,
+        alignItems: "center",
+        justifyContent:'flex-end',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
+      bottomviewmodal:{
+        backgroundColor:'#000',
+      },
+      openButton: {
+        backgroundColor: "#F194FF",
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
       }
 
 
