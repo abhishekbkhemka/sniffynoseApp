@@ -41,40 +41,77 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
 );
 export default class SelectServiceCarousal extends Component {
   constructor(props) {
-    super(props)
-                    }
+      super(props)
+      if(props.packages){
+          this.state = {
+              data: [
+                  {
+                      serviceplan: "Basic",
+                      url:require('../assets/images/service-1.png'),
+                      plan:"INR 499",
+                      info:require('../assets/images/info.png'),
+                  },
+                  {
+                      serviceplan: 'Intermediate',
+                      url:require('../assets/images/service-2.png'),
+                      plan:"INR 799",
+                      info:require('../assets/images/info.png'),
+                  },
+                  {
+                      serviceplan: 'Advanced',
+                      url:require('../assets/images/service-1.png'),
+                      plan:"INR 999",
+                      info:require('../assets/images/info.png'),
+                  },
+                  {
+                      serviceplan: 'Basic',
+                      url:require('../assets/images/service-2.png'),
+                      plan:"INR 499",
+                      info:require('../assets/images/info.png'),
+                  },
+                  {
+                      serviceplan: 'Intermediate',
+                      url:require('../assets/images/service-2.png'),
+                      plan:"INR 799",
+                      info:require('../assets/images/info.png'),
+                  },
+
+              ],
+          }
+      }
+  }
 
 
   state = {
     data: [
       {
-        serviceplan: "Basic",
+        serviceplan: "Tick & Flea Treatment",
         url:require('../assets/images/service-1.png'),
         plan:"INR 499",
         info:require('../assets/images/info.png'),
       },
       {
-        serviceplan: 'Intermediate',
+        serviceplan: 'Hair Cut',
         url:require('../assets/images/service-2.png'),
-        plan:"INR 799",
+        plan:"INR 699 - 899",
         info:require('../assets/images/info.png'),
       },
       {
-        serviceplan: 'Advanced',
+        serviceplan: 'Teeth Cleaning',
         url:require('../assets/images/service-1.png'),
-        plan:"INR 999",
+        plan:"INR 99",
         info:require('../assets/images/info.png'),
       },
       {
-        serviceplan: 'Basic',
+        serviceplan: 'Shampoo',
         url:require('../assets/images/service-2.png'),
-        plan:"INR 499",
+        plan:"INR 299",
         info:require('../assets/images/info.png'),
       },
       {
-        serviceplan: 'Intermediate',
+        serviceplan: 'Nai Cut/Trimming',
         url:require('../assets/images/service-2.png'),
-        plan:"INR 799",
+        plan:"INR 199",
         info:require('../assets/images/info.png'),
       },
 

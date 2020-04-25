@@ -4,9 +4,13 @@ import { Thumbnail, Button, H2,  Text, Right, Header, Left} from 'native-base';
 import SelectServiceCarousal from '../components/SelectServiceCarousal';
 import ServiceIcon from '../assets/images/perfume.png';
 import styles from '../assets/styles/styles';
+import * as Font from "expo-font";
+import {Ionicons} from "@expo/vector-icons";
 
 
 export default class GroomingSelectService extends Component {
+
+
 
   render() {
     return (
@@ -30,13 +34,13 @@ export default class GroomingSelectService extends Component {
                 </Button>
 
                 <H2 style={styles.HeadingDashboard}>
-                    Which services are you looking for??
+                    Which services are you looking for?
                 </H2>
              </View>
             
           <View style={styles.paddinghorizontalSpacing}>
             <Text style={styles.grommingsubheading}>Combo</Text>
-            <SelectServiceCarousal></SelectServiceCarousal>
+            <SelectServiceCarousal packages={true}></SelectServiceCarousal>
           </View>  
               
        

@@ -4,13 +4,25 @@ import { Card, CardItem, Text, Body, Button } from "native-base";
 import styles from '../assets/styles/styles';
 import Login from '../components/Login';
 import ContactDetails  from '../components/ContactDetails';
+import GroomingSelectService from '../components/GroomingSelectService';
 import LoginOtp  from '../components/LoginOtp';
+import * as Font from "expo-font";
+import {Ionicons} from "@expo/vector-icons";
 
 export default class Grooming extends Component {
     constructor(props){
         super(props)
-        this.state = {isLogin:true,contactDetails:false}
+        this.state = {isLogin:false,contactDetails:false,isSelectService:false}
         this.mobile = ''
+    }
+
+    async componentDidMount() {
+        await Font.loadAsync({
+            'Roboto': require('native-base/Fonts/Roboto.ttf'),
+            'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+            ...Ionicons.font,
+        })
+        this.setState({isSelectService:true})
     }
 
     closeLogin(){
@@ -31,6 +43,9 @@ export default class Grooming extends Component {
     render(){
         return (
             <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainer}>
+                {this.state.isSelectService &&
+                    <GroomingSelectService />
+                }
                 {this.state.isLogin &&
                     <Login closeMe={this.closeLogin.bind(this)} continueWithContactNumber={this.showContactDetails.bind(this)}/>
                 }
