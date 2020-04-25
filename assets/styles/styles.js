@@ -810,6 +810,11 @@ export default StyleSheet.create({
         backgroundColor:'#f6f6ff',
         bottom:60,
       },
+      checkclick:{
+          position:'absolute',
+          right:-5,
+          top:0,
+      },
 
       heightSpacing:{
         height:70,

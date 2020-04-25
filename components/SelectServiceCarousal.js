@@ -3,6 +3,7 @@ import { View , Image, TouchableHighlight} from 'react-native';
 import { H3, Text, Card, CardItem, Button, Left, Right} from 'native-base';
 import Carousel from 'react-native-snap-carousel';
 import styles from '../assets/styles/styles';
+import checkIcon from '../assets/images/check.png';
 import { sliderWidth, sliderItemWidth , sliderItemHorizontalMargin,slideWidth} from '../assets/styles/base';
 
 
@@ -16,10 +17,13 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
         alignItems: 'center',
         justifyContent: 'center',
         }}>
-           <View style={{}}>
            <View>
+           <View style={{borderWidth:1, borderColor:'#000', borderRadius:10,}}>
               <Image source={url} style={{height: 119, width: 125}}/>
               <Text style={styles.plan}>{plan}</Text>
+              <TouchableHighlight style={styles.checkclick}>
+                      <Image source={checkIcon} style={{height: 20, width: 20}}/> 
+                  </TouchableHighlight>
            </View>
 
             <View style={styles.blockWrappergService}>
