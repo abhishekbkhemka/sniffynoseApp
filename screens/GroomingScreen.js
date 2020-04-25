@@ -11,8 +11,8 @@ export default function GroomingScreen({ navigation, route }) {
     return (
 
         // <Grooming navigation={navigation}></Grooming>
-        // <GroomingSelectService></GroomingSelectService>
-        <GroomingScheduled></GroomingScheduled>
+        <GroomingSelectService></GroomingSelectService>
+        // <GroomingScheduled></GroomingScheduled>
 
     );
 }

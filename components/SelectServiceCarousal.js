@@ -18,7 +18,7 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
         justifyContent: 'center',
         }}>
            <View>
-           <View style={{borderWidth:1, borderColor:'#000', borderRadius:10,}}>
+           <View style={styles.serviceBlock}>
               <Image source={url} style={{height: 119, width: 125}}/>
               <Text style={styles.plan}>{plan}</Text>
               <TouchableHighlight style={styles.checkclick}>
@@ -60,9 +60,9 @@ export default class SelectServiceCarousal extends Component {
         info:require('../assets/images/info.png'),
       },
       {
-        serviceplan: 'Advanced',
+        serviceplan: 'Advanced Advanced',
         url:require('../assets/images/service-1.png'),
-        plan:"INR 999",
+        plan:"INR 999.786",
         info:require('../assets/images/info.png'),
       },
       {

@@ -631,7 +631,12 @@ export default StyleSheet.create({
           top:0,
           width:dimensions.fullWidth - 20,
         },
-
+        serviceBlock:{
+          borderWidth:1, 
+          borderColor:'#000',
+           borderRadius:10,
+           width:127
+        },
         UpcomingSchedule:{
           backgroundColor:'#f7d82f',
           width:'100%',
@@ -709,8 +714,8 @@ export default StyleSheet.create({
       plan:{
         position:'absolute',
         zIndex:99,
-        left:30,
-        right:0,
+        left:20,
+        right:20,
         bottom:10,
         borderWidth:1,
         borderColor:'#d3d3d3',
@@ -719,16 +724,17 @@ export default StyleSheet.create({
         paddingRight:5,
         paddingTop:5,
         paddingBottom:5,
-        width:59,
+        minWidth: '8%',
         borderRadius:38,
         fontSize:12,
         textAlign:'center',
       },
 
       serviceplan:{
-        fontSize:16,
+        fontSize:14,
         color:'#231f20',
         textAlign:'left',
+        maxWidth:'74%',
       },
 
       blockWrappergService:{
