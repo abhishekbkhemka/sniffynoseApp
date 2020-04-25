@@ -134,7 +134,7 @@ export default StyleSheet.create({
          marginLeft:20,
         marginRight:20,
         position: 'absolute', 
-        bottom: 90, 
+         bottom: 70, 
       },
 
       bottomViewModal: {
@@ -318,6 +318,21 @@ export default StyleSheet.create({
             justifyContent:'center',
             alignItems:'center',
          },
+
+         transparentbtnwborder:{
+          backgroundColor: 'transparent',
+          borderWidth: 1,
+          borderColor:'#d3d3d3',
+          borderRadius: 38,
+          width: dimensions.fullWidth - 40,
+          marginLeft:18,
+          marginRight:18,
+          marginTop:10,
+          paddingTop:8,
+          paddingBottom:8,
+          justifyContent:'flex-start',
+          alignItems:'center',
+         },
          disabledbtn:{
           width:"100%",
           backgroundColor: colors.disabled,
@@ -325,6 +340,11 @@ export default StyleSheet.create({
           borderRadius: 38,
           justifyContent:'center',
           alignItems:'center',
+       },
+       gobacktext:{
+          textAlign:'left',
+          width:'100%',
+          paddingLeft:15,
        },
 
        primaryborderedbtn:{
@@ -390,7 +410,17 @@ export default StyleSheet.create({
         paddingTop:20,
         paddingBottom:48,
         color:'#8d8d8d',
+       },
+       headingscheduleText:{
+        color:'#231f20',
+        fontSize: 20,
+        lineHeight:28,
+       },
 
+       paradetailtext:{
+        fontSize:fonts.sm,
+        paddingBottom:20,
+        color:'#8d8d8d',
        },
 
         inputfiledLabel:{
