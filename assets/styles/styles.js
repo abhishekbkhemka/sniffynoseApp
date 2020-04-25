@@ -628,7 +628,7 @@ export default StyleSheet.create({
           margin:10,
         },
         ScheduleBlock:{
-          top:0,
+          top:10,
           width:dimensions.fullWidth - 20,
         },
         serviceBlock:{
