@@ -598,10 +598,10 @@ export default StyleSheet.create({
           margin:10,
         },
         ScheduleBlock:{
-          position:'absolute',
           top:0,
-          width:dimensions.fullWidth,
+          width:dimensions.fullWidth - 20,
         },
+
         UpcomingSchedule:{
           backgroundColor:'#f7d82f',
           width:'100%',
@@ -803,6 +803,13 @@ export default StyleSheet.create({
          paddingLeft:16,
          backgroundColor:'#f6f6ff',
        },
+       GroomingSelectWrapper:{
+        flex:1, 
+        paddingLeft:15,
+        paddingRight:15,
+        backgroundColor:'#f6f6ff',
+        bottom:60,
+      },
 
       heightSpacing:{
         height:70,
