@@ -30,9 +30,12 @@ export default class BottomMenu extends Component {
 
                 <Col style={styles.rightMenuBarBlock}>
 
-                       
+                <TouchableOpacity   style={[styles.IconBottomPosition, styles.rightSearchFooter]}>
+                          <Thumbnail source={searchIcon} style={styles.searchImage}/> 
+                        </TouchableOpacity> 
+
                          <TouchableOpacity style={[styles.IconBottomPosition, styles.sidenotifyspacing]}>
-                          <Thumbnail  source={searchIcon} style={styles.searchImage}/> 
+                          <Thumbnail  source={notifyImage} style={styles.notifyImage}/> 
                         </TouchableOpacity>
 
                         <TouchableOpacity   style={styles.MenuIconOpen}>

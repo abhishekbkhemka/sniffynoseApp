@@ -134,7 +134,19 @@ export default StyleSheet.create({
          marginLeft:20,
         marginRight:20,
         position: 'absolute', 
-        bottom: 90, 
+         bottom: 70, 
+      },
+
+      bottomViewModal: {
+        width: dimensions.fullWidth - 40,
+        flex:1,
+       justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:'5%',
+         marginLeft:20,
+        marginRight:20,
+        position: 'absolute', 
+        bottom: 10, 
       },
 
       containerCalendar:{
@@ -240,12 +252,26 @@ export default StyleSheet.create({
 
       ButtonWrapper:{
         width:"100%",
-        flex:1,
+      },
+      fullwidth:{
+          width:'100%',
       },
 
       paddingtopbottomSpacing:{
         paddingTop:18,
         paddingBottom:18,
+      },
+      buttonprimaryWrapper:{
+          width:dimensions.fullWidth - 40,
+          paddingLeft:15,
+        paddingRight:10,
+        marginBottom:20,
+          
+      },
+      buttonprimarybtn:{
+        width:'96%',
+        
+       
       },
       
          primarybtn:{
@@ -292,6 +318,21 @@ export default StyleSheet.create({
             justifyContent:'center',
             alignItems:'center',
          },
+
+         transparentbtnwborder:{
+          backgroundColor: 'transparent',
+          borderWidth: 1,
+          borderColor:'#d3d3d3',
+          borderRadius: 38,
+          width: dimensions.fullWidth - 40,
+          marginLeft:18,
+          marginRight:18,
+          marginTop:10,
+          paddingTop:8,
+          paddingBottom:8,
+          justifyContent:'flex-start',
+          alignItems:'center',
+         },
          disabledbtn:{
           width:"100%",
           backgroundColor: colors.disabled,
@@ -299,6 +340,11 @@ export default StyleSheet.create({
           borderRadius: 38,
           justifyContent:'center',
           alignItems:'center',
+       },
+       gobacktext:{
+          textAlign:'left',
+          width:'100%',
+          paddingLeft:15,
        },
 
        primaryborderedbtn:{
@@ -364,7 +410,17 @@ export default StyleSheet.create({
         paddingTop:20,
         paddingBottom:48,
         color:'#8d8d8d',
+       },
+       headingscheduleText:{
+        color:'#231f20',
+        fontSize: 20,
+        lineHeight:28,
+       },
 
+       paradetailtext:{
+        fontSize:fonts.sm,
+        paddingBottom:20,
+        color:'#8d8d8d',
        },
 
         inputfiledLabel:{
@@ -572,10 +628,10 @@ export default StyleSheet.create({
           margin:10,
         },
         ScheduleBlock:{
-          position:'absolute',
           top:0,
-          width:dimensions.fullWidth,
+          width:dimensions.fullWidth - 20,
         },
+
         UpcomingSchedule:{
           backgroundColor:'#f7d82f',
           width:'100%',
@@ -777,6 +833,18 @@ export default StyleSheet.create({
          paddingLeft:16,
          backgroundColor:'#f6f6ff',
        },
+       GroomingSelectWrapper:{
+        flex:1, 
+        paddingLeft:15,
+        paddingRight:15,
+        backgroundColor:'#f6f6ff',
+        bottom:60,
+      },
+      checkclick:{
+          position:'absolute',
+          right:-5,
+          top:0,
+      },
 
       heightSpacing:{
         height:70,
@@ -1046,6 +1114,47 @@ export default StyleSheet.create({
       confirmproductwrapper:{
         width:dimensions.fullWidth - 40,
         marginLeft:20,
+      },
+
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22,
+      },
+      modalView: {
+        margin: 0,
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 5,
+        alignItems: "center",
+        justifyContent:'flex-end',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
+      bottomviewmodal:{
+        backgroundColor:'#000',
+      },
+      openButton: {
+        backgroundColor: "#F194FF",
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
       }
 
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native';
 import styles from '../assets/styles/styles';
 import { H2, Button, Header, Right, Thumbnail, List, ListItem, Body, Item} from 'native-base';
+import HomeModalOtp from './HomeModalOtp';
 
 
 export default class TopQuickAction extends Component {
@@ -23,9 +24,10 @@ export default class TopQuickAction extends Component {
                         <Text style={styles.appointmentprodctname}>German Shephard (9 yr)</Text>
                      </View>
                      </View>
-                     <Button style={styles.primarybtn}>
+                     {/* <Button style={styles.primarybtn}>
                             <Text  style={styles.colorPrimarybtn}>Start Grooming</Text>
-                      </Button> 
+                      </Button>  */}
+                      <HomeModalOtp></HomeModalOtp>
                       </View>
             </View>
         )
