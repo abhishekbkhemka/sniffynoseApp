@@ -6,6 +6,11 @@ export const User = {
 
     signup(userData){
         return http.post('users/',userData,true)
+    },
+
+
+    getServices(){
+        return http.get('grooming/services',true)
     }
 }
 

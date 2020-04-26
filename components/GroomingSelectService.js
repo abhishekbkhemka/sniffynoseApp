@@ -6,11 +6,18 @@ import ServiceIcon from '../assets/images/perfume.png';
 import styles from '../assets/styles/styles';
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
+import { User } from '../services/UserService'
+
 
 
 export default class GroomingSelectService extends Component {
+    state = {}
+    componentDidMount(){
+        let that = this
+        User.getServices().then(res =>{
 
-
+        })
+    }
 
   render() {
     return (

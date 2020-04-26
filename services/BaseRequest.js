@@ -2,12 +2,11 @@ import { BASE_URL } from "../constants/Constant";
 import { AsyncStorage } from "react-native";
 
 export const handleResponse = function (response) {
-
     if (response.status === 200 || response.status == 201) {
-        if (!response._bodyText) {
-        } else {
+        // if (!response._bodyText) {
+        // } else {
             return response.json();
-        }
+        // }
     } else {
         let error = new Error(response);
         error.response = response
@@ -53,14 +52,15 @@ export const http = {
 
     get: async function (requestUrl, authenticate) {
         if (authenticate) {
-            let user = await AsyncStorage.getItem('user');
-            user = JSON.parse(user)
-            if (requestUrl.indexOf('?') == -1) {
-                requestUrl += '?1=1&username=' + user.username + '&api_key=' + user.api_key
-            }
+            // let user = await AsyncStorage.getItem('user');
+            // user = JSON.parse(user)
+            // if (requestUrl.indexOf('?') == -1) {
+            //     requestUrl += '?1=1&username=' + user.username + '&api_key=' + user.api_key
+            // }
+            get_request.headers['Authorization'] = "Token " +'cd75f92b8f922148565c666808a73ae277a254a4'
         }
 
-        return fetch(BASE_URL + requestUrl, get_request).then(handleResponse).then(handleError)
+        return fetch(BASE_URL + requestUrl, get_request).then(handleResponse)
     },
 
     upload: async function (uri, uuid) {

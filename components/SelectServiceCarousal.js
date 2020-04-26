@@ -7,6 +7,7 @@ import checkIcon from '../assets/images/check.png';
 import { sliderWidth, sliderItemWidth , sliderItemHorizontalMargin,slideWidth} from '../assets/styles/base';
 
 
+
 const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
   
   <View style={styles.wrapper}>
@@ -18,7 +19,7 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
         justifyContent: 'center',
         }}>
            <View>
-           <View style={{borderWidth:1, borderColor:'#000', borderRadius:10,}}>
+           <View style={styles.serviceBlock}>
               <Image source={url} style={{height: 119, width: 125}}/>
               <Text style={styles.plan}>{plan}</Text>
               <TouchableHighlight style={styles.checkclick}>
