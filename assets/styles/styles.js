@@ -612,7 +612,8 @@ export default StyleSheet.create({
             position:'absolute',
             zIndex:999,
             bottom:5,
-             paddingTop:10,
+            left: 'auto',
+            paddingTop:10,
             paddingBottom:10,
             },
 

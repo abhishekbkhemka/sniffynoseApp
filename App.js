@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
 import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
-import { SplashScreen } from 'expo';
 
 import BottomMenu from './components/BottomMenu';
 
@@ -68,7 +69,6 @@ export default function App(props) {
             {/*<Stack.Screen name="Root" component={BottomTabNavigator} />*/}
           {/*</Stack.Navigator>*/}
         {/*</NavigationContainer>*/}
-        <BottomMenu></BottomMenu>
       </View>
     );
   }
