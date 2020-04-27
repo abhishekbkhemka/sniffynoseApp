@@ -5,6 +5,7 @@ import styles from '../assets/styles/styles';
 import Login from '../components/Login';
 import ContactDetails  from '../components/ContactDetails';
 import GroomingSelectService from '../components/GroomingSelectService';
+import GroomingSelectDate from '../components/GroomingSelectDate'
 import LoginOtp  from '../components/LoginOtp';
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
@@ -34,17 +35,31 @@ export default class Grooming extends Component {
 
     requestOtp(userData){
         this.userData = userData
-        this.setState({isLoginOtp:true,contactDetails:false,isLogin:false})
+        this.setState({isLoginOtp:true,contactDetails:false,isLogin:false,isSelectService:false})
     }
 
     loginVerified(mobile,token){
         this.props.navigation.navigate('Home')
     }
+
+    selectDate(){
+        var state = {}
+        for(var key in this.state){
+            state[key] = false
+        }
+
+        state['isSelectDate']  = true
+        this.setState(state)
+    }
     render(){
         return (
             <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainer}>
                 {this.state.isSelectService &&
-                    <GroomingSelectService />
+                    <GroomingSelectService next={this.selectDate.bind(this)} />
+                }
+
+                {this.state.isSelectDate &&
+                    <GroomingSelectDate />
                 }
                 {this.state.isLogin &&
                     <Login closeMe={this.closeLogin.bind(this)} continueWithContactNumber={this.showContactDetails.bind(this)}/>

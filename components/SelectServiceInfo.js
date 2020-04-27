@@ -19,9 +19,7 @@ export default  class SelectServiceInfo extends Component {
 
   setInfoModalVisible(visible) {
     this.setState({modalVisible: visible});
-    if(this.props.closeMe){
-      this.props.closeMe()
-    }
+
   }
 
 

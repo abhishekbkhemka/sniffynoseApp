@@ -5,10 +5,11 @@ import Carousel from 'react-native-snap-carousel';
 import styles from '../assets/styles/styles';
 import checkIcon from '../assets/images/check.png';
 import { sliderWidth, sliderItemWidth , sliderItemHorizontalMargin,slideWidth} from '../assets/styles/base';
+import SelectServiceInfo from '../components/SelectServiceInfo'
 
 
 
-const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
+const GroomingCarousalList = ({selected,name ,url, price, infoIcon,showInfo}) => (
   
   <View style={styles.wrapper}>
     <View
@@ -19,18 +20,18 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
         justifyContent: 'center',
         }}>
            <View>
-           <View style={styles.serviceBlock}>
-              <Image source={url} style={{height: 119, width: 125}}/>
-              <Text style={styles.plan}>{plan}</Text>
-              <TouchableHighlight style={styles.checkclick}>
-                      <Image source={checkIcon} style={{height: 20, width: 20}}/> 
-                  </TouchableHighlight>
+           <View style={selected ?styles.serviceBlock:''}>
+              <Image source={{uri:url}} style={{height: 119, width: 125}}/>
+              <Text style={styles.plan}>{'INR '+price}</Text>
+               {selected && <TouchableHighlight style={styles.checkclick}>
+                   <Image source={checkIcon} style={{height: 20, width: 20}}/>
+                  </TouchableHighlight>}
            </View>
 
             <View style={styles.blockWrappergService}>
-                  <Text style={styles.serviceplan}>{serviceplan}</Text>
-                  <TouchableHighlight>
-                      <Image source={info} style={{height: 20, width: 20}}/> 
+                  <Text style={styles.serviceplan}>{name}</Text>
+                  <TouchableHighlight onPress={()=>showInfo()}>
+                      <Image source={infoIcon} style={{height: 20, width: 20}}/>
                   </TouchableHighlight>
                   
             </View>
@@ -41,93 +42,33 @@ const GroomingCarousalList = ({serviceplan ,url, plan, info}) => (
   </View>
 );
 export default class SelectServiceCarousal extends Component {
+    state = {data:[],info:false}
   constructor(props) {
       super(props)
-      if(props.packages){
-          this.state = {
-              data: [
-                  {
-                      serviceplan: "Basic",
-                      url:require('../assets/images/service-1.png'),
-                      plan:"INR 499",
-                      info:require('../assets/images/info.png'),
-                  },
-                  {
-                      serviceplan: 'Intermediate',
-                      url:require('../assets/images/service-2.png'),
-                      plan:"INR 799",
-                      info:require('../assets/images/info.png'),
-                  },
-                  {
-                      serviceplan: 'Advanced',
-                      url:require('../assets/images/service-1.png'),
-                      plan:"INR 999",
-                      info:require('../assets/images/info.png'),
-                  },
-                  {
-                      serviceplan: 'Basic',
-                      url:require('../assets/images/service-2.png'),
-                      plan:"INR 499",
-                      info:require('../assets/images/info.png'),
-                  },
-                  {
-                      serviceplan: 'Intermediate',
-                      url:require('../assets/images/service-2.png'),
-                      plan:"INR 799",
-                      info:require('../assets/images/info.png'),
-                  },
+      console.log(props)
 
-              ],
-          }
-      }
   }
 
-
-  state = {
-    data: [
-      {
-        serviceplan: "Tick & Flea Treatment",
-        url:require('../assets/images/service-1.png'),
-        plan:"INR 499",
-        info:require('../assets/images/info.png'),
-      },
-      {
-        serviceplan: 'Hair Cut',
-        url:require('../assets/images/service-2.png'),
-        plan:"INR 699 - 899",
-        info:require('../assets/images/info.png'),
-      },
-      {
-        serviceplan: 'Teeth Cleaning',
-        url:require('../assets/images/service-1.png'),
-        plan:"INR 99",
-        info:require('../assets/images/info.png'),
-      },
-      {
-        serviceplan: 'Shampoo',
-        url:require('../assets/images/service-2.png'),
-        plan:"INR 299",
-        info:require('../assets/images/info.png'),
-      },
-      {
-        serviceplan: 'Nai Cut/Trimming',
-        url:require('../assets/images/service-2.png'),
-        plan:"INR 199",
-        info:require('../assets/images/info.png'),
-      },
-
-    ],
+  componentDidMount(){
+      this.setState( {
+          data: this.props.data
+      })
   }
+    showInfo(){
+        this.props.showInfo()
+    }
+
+
 
 
   renderListComponent = ({ item }) => {
-    return (<GroomingCarousalList serviceplan={item.serviceplan} url={item.url} plan={item.plan} info={item.info} />)
+    return (<GroomingCarousalList selected={item.selected} name={item.name} url={item.icon} price={item.price} infoIcon={require('../assets/images/info.png')} showInfo={this.showInfo.bind(this)} />)
   };
 
   render() {
     return (
       <View>
-        <Carousel
+          <Carousel
           containerCustomStyle={{ backgroundColor: 'transparent' }}
           data={this.state.data}
           renderItem={this.renderListComponent}
@@ -137,6 +78,7 @@ export default class SelectServiceCarousal extends Component {
           inactiveSlideScale={1}
           inactiveSlideOpacity={1}
         />
+          {this.state.info && <SelectServiceInfo></SelectServiceInfo>}
       </View>
 
 

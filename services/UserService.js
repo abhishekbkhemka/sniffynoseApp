@@ -11,6 +11,10 @@ export const User = {
 
     getServices(){
         return http.get('grooming/services',true)
+    },
+
+    getPackages(){
+        return http.get('grooming/packages',true)
     }
 }
 
