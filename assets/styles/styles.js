@@ -344,7 +344,8 @@ export default StyleSheet.create({
        gobacktext:{
           textAlign:'left',
           width:'100%',
-          paddingLeft:15,
+          paddingLeft:25,
+          fontSize:20,
        },
 
        primaryborderedbtn:{
@@ -1162,8 +1163,78 @@ export default StyleSheet.create({
       modalText: {
         marginBottom: 15,
         textAlign: "center"
-      }
+      },
 
+      groomingpayment:{
+          padding:20,
+      },
+      leftIconpayment:{
+        position:'absolute',
+        left:0,
+        width: 13, height: 24
+      },
+      headerbackpayment:{
+        flexDirection:'row',
+        width:'100%',
+        alignItems:'center',
+        marginBottom:20,
+      },
+      cardpaymentwrapper:{
+        borderRadius: 20,
+        width:'100%',
+        padding:15,
+      },
+      paymentproductblock:{
+          flexDirection:'row',
+          width:'100%',
+          marginBottom:20,
+      },
 
+      cardpaymentheading:{
+          fontSize:13,
+          textTransform:"uppercase",
+          color:'#222ba8',
+          marginBottom:10,
+          fontWeight:'bold',
+      },
+
+      paymenttitle:{
+          color:'#8d8d8d',
+          fontSize:14,
+          marginBottom:0
+      },
+
+      paymentsubtitle:{
+        color:'#231f20',
+        fontSize:16,
+      },
+
+      paymentproductview:{
+          width:'60%'
+      },
+      paymentproductviewc:{
+        width:'40%'
+    },
+      paymenttotal:{
+        borderTopColor:'#eeeeee',
+        borderTopWidth:2,
+        marginTop:0,
+        paddingTop:15,
+        flexDirection:'row',
+          width:'100%',
+      },
+      img:{
+        height:20,
+        width: 20
+    },
+    btn:{
+        flexDirection: 'row'
+    },
+    paymentmode:{
+      color:'#231f20',
+      fontSize:12,
+      marginTop:15,
+      marginBottom:15,
+    },
 
 });  

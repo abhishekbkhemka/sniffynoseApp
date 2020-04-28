@@ -2,6 +2,7 @@ import * as React from 'react';
 import Grooming from '../components/Grooming';
 
 import GroomingScheduled from '../components/GroomingScheduled';
+import GroomingCompletePayment from '../components/GroomingCompletePayment';
 
 
 export default function GroomingScreen({ navigation, route }) {
