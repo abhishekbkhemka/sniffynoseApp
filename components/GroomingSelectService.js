@@ -14,11 +14,15 @@ import check from "../assets/images/checkmark.png";
 
 export default class GroomingSelectService extends Component {
     state = {services:[],packages:[],selectService:true,infoVisible:false}
+    servicesMap = new Map()
     componentDidMount(){
         let that = this
         User.getServices().then(res =>{
-            console.log(res)
-            that.setState({services:res})
+            for(let i = 0 ;i <res.length;i++){
+                let service = res[i]
+                that.servicesMap.set(service.id,service)
+            }
+            that.setState({services:Array.from(this.servicesMap.values())})
         })
 
         User.getPackages().then(res =>{
@@ -27,23 +31,92 @@ export default class GroomingSelectService extends Component {
     }
 
     next(){
-        this.props.next()
+        let selected = false
+        let selectedData = {services:[]}
+        for(let i=0;i<this.state.packages.length;i++){
+            let pac = this.state.packages[i]
+            if(pac.selected){
+                selected = true
+                selectedData['package'] = pac
+                break;
+            }
+        }
+
+
+        for(let i=0;i<this.state.services.length;i++){
+            let service = this.state.services[i]
+            if(service.selected){
+                selected = true
+                selectedData['services'].push(service)
+            }
+        }
+        console.log('***************************test')
+        console.log(selectedData)
+        if(selected){
+            this.props.next(selectedData)
+            return
+        }
+
+
+
+        Alert.alert('Please select at least one service or package')
+
+
+
+
+
     }
     showInfo(){
         this.setState({infoVisible: true});
 
     }
 
+    itemSelected(type,item){
+
+        if(type == 'service'){
+            for(let i=0;i<this.state.services.length;i++){
+                let service = this.state.services[i]
+                if(service.id == item.id) {
+                    service.selected = !item.selected
+                }
+            }
+            this.setState({services:this.state.services})
+        }
+
+        if(type == 'package'){
+            for(let i=0;i<this.state.packages.length;i++){
+                let pack = this.state.packages[i]
+                if(pack.id == item.id){
+                    pack.selected = !item.selected
+                    for(let j=0;j<pack.services.length;j++){
+                        let ser = pack.services[j]
+                        let service = this.servicesMap.get(ser.id)
+
+                        if(service){
+                            service.selected = false
+                            if(pack.selected){
+                                service.packageId = pack.id
+                            }else{
+                                delete  service.packageId
+
+                            }
+                        }
+
+
+                    }
+                }else{
+                    pack.selected = false
+                }
+            }
+            this.setState({packages:this.state.packages,services:this.state.services})
+        }
+    }
+
   render() {
     return (
         <View  style={styles.GroomingSelectWrapper}>
 
-       <View style={styles.ScheduleBlock}>
-             
-                  <Image
-                    style={{width: 13, height: 24}}
-                    source={require('../assets/images/lefticon.png')}/>
-            </View>
+
                   <ScrollView
         contentContainerStyle={{ 
          flexGrow: 1, 
@@ -62,14 +135,14 @@ export default class GroomingSelectService extends Component {
              </View>
             
           <View style={styles.paddinghorizontalSpacing}>
-            <Text style={styles.grommingsubheading}>Combo</Text>
-              {this.state.packages.length > 0 && <SelectServiceCarousal data={this.state.packages} showInfo={this.showInfo.bind(this)}></SelectServiceCarousal>}
+            <Text style={styles.grommingsubheading}>Packages</Text>
+              {this.state.packages.length > 0 && <SelectServiceCarousal itemSelected={this.itemSelected.bind(this,'package')} data={this.state.packages} showInfo={this.showInfo.bind(this)}></SelectServiceCarousal>}
           </View>  
               
        
           <View>
             <Text style={styles.grommingsubheading}>Individual</Text>
-              {this.state.services.length > 0 && <SelectServiceCarousal data={this.state.services} showInfo={this.showInfo.bind(this)} ></SelectServiceCarousal>}
+              {this.state.services.length > 0 && <SelectServiceCarousal itemSelected={this.itemSelected.bind(this,'service')} data={this.state.services} showInfo={this.showInfo.bind(this)} ></SelectServiceCarousal>}
            </View>  
       {/* spacing */}
           <View style={styles.paddinghorizontalSpacing}>

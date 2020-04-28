@@ -9,9 +9,9 @@ import SelectServiceInfo from '../components/SelectServiceInfo'
 
 
 
-const GroomingCarousalList = ({selected,name ,url, price, infoIcon,showInfo}) => (
+const GroomingCarousalList = ({item, infoIcon,showInfo,select}) => (
   
-  <View style={styles.wrapper}>
+  <View style={styles.wrapper} >
     <View
       style={{
         width: slideWidth,
@@ -19,17 +19,18 @@ const GroomingCarousalList = ({selected,name ,url, price, infoIcon,showInfo}) =>
         alignItems: 'center',
         justifyContent: 'center',
         }}>
-           <View>
-           <View style={selected ?styles.serviceBlock:''}>
-              <Image source={{uri:url}} style={{height: 119, width: 125}}/>
-              <Text style={styles.plan}>{'INR '+price}</Text>
-               {selected && <TouchableHighlight style={styles.checkclick}>
+            <TouchableHighlight onPress={()=>select(item)}>
+           <View >
+           <View style={(item.selected || item.packageId) ?styles.serviceBlock:''}>
+              <Image source={{uri:item.icon}} style={{height: 119, width: 125}}/>
+              <Text style={styles.plan}>{'INR '+item.price}</Text>
+               {(item.selected || item.packageId) && <TouchableHighlight style={styles.checkclick}>
                    <Image source={checkIcon} style={{height: 20, width: 20}}/>
                   </TouchableHighlight>}
            </View>
 
             <View style={styles.blockWrappergService}>
-                  <Text style={styles.serviceplan}>{name}</Text>
+                  <Text style={styles.serviceplan}>{item.name}</Text>
                   <TouchableHighlight onPress={()=>showInfo()}>
                       <Image source={infoIcon} style={{height: 20, width: 20}}/>
                   </TouchableHighlight>
@@ -37,6 +38,7 @@ const GroomingCarousalList = ({selected,name ,url, price, infoIcon,showInfo}) =>
             </View>
           
           </View>
+            </TouchableHighlight>
      
     </View>
   </View>
@@ -50,6 +52,7 @@ export default class SelectServiceCarousal extends Component {
   }
 
   componentDidMount(){
+      console.log(this.props.data)
       this.setState( {
           data: this.props.data
       })
@@ -57,12 +60,16 @@ export default class SelectServiceCarousal extends Component {
     showInfo(){
         this.props.showInfo()
     }
+    serviceSelected(item){
+
+        this.props.itemSelected(item)
+    }
 
 
 
 
   renderListComponent = ({ item }) => {
-    return (<GroomingCarousalList selected={item.selected} name={item.name} url={item.icon} price={item.price} infoIcon={require('../assets/images/info.png')} showInfo={this.showInfo.bind(this)} />)
+    return (<GroomingCarousalList item={item}  infoIcon={require('../assets/images/info.png')} showInfo={this.showInfo.bind(this)} select={this.serviceSelected.bind(this)} />)
   };
 
   render() {

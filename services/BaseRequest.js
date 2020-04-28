@@ -44,7 +44,7 @@ export const http = {
         // let user = await AsyncStorage.getItem('user');
         // user = JSON.parse(user);
         if (!isAuthenticationNotRequired ) {
-            post_request.headers['Authorization'] = "ApiKey " + user.username + ':' + user.api_key
+            post_request.headers['Authorization'] =  "Token " +'cd75f92b8f922148565c666808a73ae277a254a4'
         }
 
         return fetch(BASE_URL + url, post_request).then(handleResponse)

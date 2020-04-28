@@ -25,7 +25,8 @@ export default class LoginOtp extends Component {
         let email = that.props.userData.email
         let fullname = that.props.userData.fullname
         User.signup({mobile:mobile,email:email,fullname:fullname,token:that.state.token}).then((res)=>{
-            that.props.loginVerified(this.props.mobile,this.state.token)
+            console.log(res)
+            that.props.loginVerified(mobile,this.state.token,fullname)
         }).catch((err) => {
             err.response.json().then(function(object){
                 for(let e in object){

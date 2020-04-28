@@ -15,6 +15,10 @@ export const User = {
 
     getPackages(){
         return http.get('grooming/packages',true)
+    },
+
+    requestAppointment(data){
+        return http.post('grooming/appointments/',data)
     }
 }
 
