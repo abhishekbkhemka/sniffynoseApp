@@ -42,8 +42,9 @@ export default class LoginOtp extends Component {
     render() {
 
         return (
-          <Card transparent style={styles.bottomView}>
-                  <CardItem style={styles.cardWrapper}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)'}}>
+            <View style={styles.bottomViewModal}>
+            <View style={styles.modalWrapper}>
                      <Body style={styles.paddingtopbottomSpacing}>
                           <Text  style={styles.HeadingBlock}>You received an OTP. </Text>
                          
@@ -58,13 +59,14 @@ export default class LoginOtp extends Component {
                       <Button style={styles.primarybtn} onPress={()=>this.verifyOtp()}>
                             <Text  style={styles.colorPrimarybtn}>Verify</Text>
                       </Button> 
-                </CardItem>
+                </View>
                     <View style={{flex:1, alignItems:'center'}}>
                     <Button style={[styles.secondarybtn,styles.borderbtnSecondary]}>
                         <Text>Close</Text>
                     </Button>
                 </View>
-            </Card>
+            </View>
+            </View>
 
           
 

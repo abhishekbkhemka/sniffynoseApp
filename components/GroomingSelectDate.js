@@ -47,7 +47,9 @@ export default class GroomingSelectDate extends Component {
                       selected: true,
                   }
               }}
-             
+              
+              theme={{selectedDayBackgroundColor: '#222ba8',
+              todayTextColor: '#222ba8', arrowColor: '#222ba8'}}
             />
 
            

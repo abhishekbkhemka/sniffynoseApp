@@ -632,14 +632,15 @@ export default class GroomingConfirmation extends Component {
                             </Item>
                             
                      </Body>
-                      <View>
-                      <Button style={styles.primarybtn} onPress={()=>this.confirmAppointment()}>
-                            <Text  style={styles.colorPrimarybtn} >Confirm Appointment</Text>
-                      </Button>
-                      </View>
+                     
 
 
                 </CardItem>
+                <View style={{width:'100%', marginTop:15}}>
+                      <Button style={styles.primarybtn} onPress={()=>this.confirmAppointment()}>
+                            <Text  style={styles.colorPrimarybtn} >Confirm Appointment</Text>
+                      </Button>
+                </View>
                     
             </Card>
       </View>

@@ -230,7 +230,7 @@ export default StyleSheet.create({
         marginBottom: 4,
         marginRight: 20,
       },
-
+      
      
       HeadingText:{
         width:'100%',
@@ -345,7 +345,8 @@ export default StyleSheet.create({
           textAlign:'left',
           width:'100%',
           paddingLeft:25,
-          fontSize:20,
+          fontSize:16,
+          textTransform:'initial',
        },
 
        primaryborderedbtn:{
@@ -416,6 +417,7 @@ export default StyleSheet.create({
         color:'#231f20',
         fontSize: 20,
         lineHeight:28,
+        marginBottom:15
        },
 
        paradetailtext:{
@@ -774,23 +776,12 @@ export default StyleSheet.create({
       },
 
       modalOverlay:{
-        backgroundColor:colors.black,
-        opacity:0.9,
+        // backgroundColor:'rgba(0,0,0,0.7)',
         width:dimensions.fullWidth,
         height:dimensions.fullHeight,
       },
 
-      modalWrapper:{
-        marginTop: 22, 
-        backgroundColor:colors.white,
-        opacity:1,
-        borderRadius:20,
-        margin:16,
-        paddingTop:20,
-        paddingBottom:20,
-        width:dimensions.fullWidth - 32,
-        height:dimensions.fullHeight - 130,
-      },
+     
 
       blockWrappergPlan:{
         position:'relative',
@@ -888,6 +879,21 @@ export default StyleSheet.create({
         backgroundColor: 'transparent',
         padding: 10,
         borderRadius:20,
+      },
+
+      activeselectedtime:{
+        width: dimensions.fullWidth - 80,
+        marginBottom:20,
+        borderColor:'#222ba8',
+        borderWidth:1,
+        alignItems: 'center',
+        backgroundColor: '#222ba8',
+        padding: 10,
+        borderRadius:20,
+      },
+      textactivetime :{
+        color:'#fff',
+        fontSize:16,
       },
       GdoneImage:{
         width:154,
@@ -1130,8 +1136,25 @@ export default StyleSheet.create({
         alignItems: "center",
         marginTop: 22,
       },
+
+      modalWrapper:{
+        margin: 0,
+        width:'100%',
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
       modalView: {
         margin: 0,
+        width:'100%',
         backgroundColor: "white",
         borderRadius: 10,
         padding: 5,

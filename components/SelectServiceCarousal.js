@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View , Image, TouchableHighlight} from 'react-native';
+import { View , Image, TouchableHighlight, TouchableOpacity} from 'react-native';
 import { H3, Text, Card, CardItem, Button, Left, Right} from 'native-base';
 import Carousel from 'react-native-snap-carousel';
 import styles from '../assets/styles/styles';
@@ -19,8 +19,8 @@ const GroomingCarousalList = ({item, infoIcon,showInfo,select}) => (
         alignItems: 'center',
         justifyContent: 'center',
         }}>
-            <TouchableHighlight onPress={()=>select(item)}>
-           <View >
+            <TouchableOpacity onPress={()=>select(item)}>
+           <View>
            <View style={(item.selected || item.packageId) ?styles.serviceBlock:''}>
               <Image source={{uri:item.icon}} style={{height: 119, width: 125}}/>
               <Text style={styles.plan}>{'INR '+item.price}</Text>
@@ -31,14 +31,14 @@ const GroomingCarousalList = ({item, infoIcon,showInfo,select}) => (
 
             <View style={styles.blockWrappergService}>
                   <Text style={styles.serviceplan}>{item.name}</Text>
-                  <TouchableHighlight onPress={()=>showInfo()}>
+                  <TouchableOpacity onPress={()=>showInfo()}>
                       <Image source={infoIcon} style={{height: 20, width: 20}}/>
-                  </TouchableHighlight>
+                  </TouchableOpacity>
                   
             </View>
           
           </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
      
     </View>
   </View>

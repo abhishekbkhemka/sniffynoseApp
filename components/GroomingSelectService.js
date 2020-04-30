@@ -117,7 +117,7 @@ export default class GroomingSelectService extends Component {
         <View  style={styles.GroomingSelectWrapper}>
 
 
-                  <ScrollView
+      <ScrollView
         contentContainerStyle={{ 
          flexGrow: 1, 
         flexDirection: 'column', 
@@ -155,17 +155,17 @@ export default class GroomingSelectService extends Component {
         
           </ScrollView>
 
-
-            <Modal
-                animationType="fade"
+        
+        <Modal
+                 animationType="slide"
                 transparent={true}
                 visible={this.state.infoVisible}
                 onRequestClose={() => {
                     Alert.alert('Modal has been closed.');
                 }}>
-                <View style={styles.modalOverlay}>
-                    <View>
-                        <View style={styles.modalWrapper}>
+                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)'}}>
+                    <View style={styles.bottomViewModal}>
+                    <View style={styles.modalWrapper}>
                             <View style={styles.blockWrappergPlan}>
                                 <H2 style={styles.basicHeading}>Basic</H2>
                                 <Text style={styles.planmodaltext}>INR 499</Text>

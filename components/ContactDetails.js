@@ -62,12 +62,13 @@ export default class ContactDetails extends Component {
 
         return (
 
-            <Card transparent style={styles.bottomView}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)'}}>
+            <View style={styles.bottomViewModal}>
+          
                 {this.state.error && <View style={styles.errorbtn}>
                          <Text style={styles.ErrorBlockText}>{this.state.errorMessage}</Text>
                 </View> }
-                <CardItem style={styles.cardWrapper}>
-               
+                <View style={styles.modalWrapper}>
                     <Body style={styles.paddingtopbottomSpacing}>
                           <Text  style={styles.HeadingBlock}>Your details goes here! </Text>
                          
@@ -102,13 +103,14 @@ export default class ContactDetails extends Component {
                         <Button style={styles.primarybtn} onPress={()=>this.proceed()}>
                                 <Text  style={styles.colorPrimarybtn}>Proceed</Text>
                         </Button> 
-                </CardItem>
+                </View>
                     <View style={{flex:1, alignItems:'center'}}>
                     <Button style={[styles.secondarybtn,styles.borderbtnSecondary]}>
                         <Text>Close</Text>
                     </Button>
                 </View>
-            </Card>
+            </View>
+            </View>
 
           
 

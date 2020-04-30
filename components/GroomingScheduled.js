@@ -9,7 +9,6 @@ export default class GroomingScheduled extends Component {
         return (
                    <View style={styles.bottomView}>
                         <View>
-                         
                           <Image style={styles.GdoneImage}
                             source={require('../assets/images/sceduledIcon.png')}/>
                             <H2 style={styles.headingscheduleText}>Awesome! Your appointment has been requested!</H2>

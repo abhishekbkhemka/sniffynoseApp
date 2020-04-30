@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, TouchableOpacity, View , Modal} from 'react-native';
 import { Card, CardItem, Text, Body, Button } from "native-base";
 import styles from '../assets/styles/styles';
 
 export default class Login extends Component {
     state = {
-        loading: true
+        loading: true,
       }
+     
+    
     
       async componentDidMount() {
         await Font.loadAsync({
@@ -27,8 +29,10 @@ export default class Login extends Component {
             );
           }
         return (
-            <Card transparent style={styles.bottomView}>
-                <CardItem style={styles.cardWrapper}>
+           
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)'}}>
+                    <View style={styles.bottomViewModal}>
+                    <View style={styles.modalWrapper}>
                 <View>
                     <Text  style={styles.loginHeading}>Login/Register to Confirm Appointment</Text>
                 </View>
@@ -51,14 +55,15 @@ export default class Login extends Component {
                             <Text style={styles.TextStylephone}>Continue with Contact Number</Text>
                         </TouchableOpacity>
                     </Body>
-                </CardItem>
+                </View>
                     <View style={{flex:1, alignItems:'center'}}>
                     <Button style={[styles.secondarybtn,styles.borderbtnSecondary]} onPress={() => this.props.closeMe()}>
                         <Text>Close</Text>
                     </Button>
                 </View>
-            </Card>
-
+           </View>
+           </View>
+     
         )
     }
 }
