@@ -1,3 +1,5 @@
+import {AsyncStorage} from 'react-native'
+import {USER_PROFILE_KEY} from './constants/Constant'
 const helper = {
     isNameValid: function(name){
         if(!name || name.length<1){return false}
@@ -14,6 +16,18 @@ const helper = {
         if(!email || email.length<1){return false}
         var patt = new RegExp("^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$")
         return patt.test(email.trim())
+    },
+    getLocalUserProfile : async function(cb){
+        let userProfile = await AsyncStorage.getItem(USER_PROFILE_KEY);
+        userProfile = JSON.parse(userProfile)
+        if(cb){cb(userProfile)}
+    },
+    setLocalUserProfile : async function(data,cb){
+        await AsyncStorage.setItem(USER_PROFILE_KEY,JSON.stringify(data));
+        if(cb){cb()}
+    },
+    removeLocalUserProfile : function () {
+        AsyncStorage.multiRemove([USER_PROFILE_KEY])
     }
 }
 

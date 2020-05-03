@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, TouchableOpacity, View,AsyncStorage } from 'react-native';
 import { Col, Row, Grid } from 'react-native-easy-grid';
 import { Thumbnail, Button, H2, Text} from 'native-base';
 import styles from '../assets/styles/styles';
@@ -8,6 +8,10 @@ import doggromming from '../assets/images/doggromming.png';
 import groomingImage from '../assets/images/petproducts.png';
 import { ScrollView } from 'react-native-gesture-handler';
 import * as WebBrowser from 'expo-web-browser';
+import {User} from '../services/UserService'
+import  helper from '../Helper'
+
+
 
 import { MonoText } from '../components/StyledText';
 import BottomMenu from '../components/BottomMenu';
@@ -15,6 +19,22 @@ import AdBanner from '../components/AdBanner';
 import TopQuickAction from '../components/TopQuickAction';
 
 export default function HomeScreen({ navigation, route }) {
+
+    helper.getLocalUserProfile(function (up) {
+        if(up){
+            User.getUserProfile(up.id).then(res=>{
+                helper.setLocalUserProfile(res)
+            }).catch(err=>{
+                helper.removeLocalUserProfile()
+
+            })
+        }
+    })
+
+
+
+
+
     return (
         <View style={{flex:1 }}>
            <TopQuickAction></TopQuickAction>

@@ -13,6 +13,7 @@ import GroomingAddPet  from '../components/GroomingAddPet';
 import GroomingScheduled  from '../components/GroomingScheduled';
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
+import  helper from '../Helper'
 
 export default class Grooming extends Component {
     groomingData = {}
@@ -87,10 +88,19 @@ export default class Grooming extends Component {
     }
 
     requestAppointment(time){
-        this.__resetAllState()
-        this.state['isLogin']  = true
-        this.groomingData['time'] = time
-        this.setState(this.state)
+        let that = this
+        helper.getLocalUserProfile(function (res) {
+            that.__resetAllState()
+            that.groomingData['time'] = time
+            if(res){
+                that.state['isPetDetails']  = true
+                that.groomingData['user'] = {full_name:res.user.first_name+' '+res.user.last_name,mobile_number:res.mobile_number}
+            }else{
+                that.state['isLogin']  = true
+            }
+            that.setState(that.state)
+        })
+
     }
 
     petAdded(pets){
