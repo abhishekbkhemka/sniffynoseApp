@@ -33,11 +33,25 @@ export default StyleSheet.create({
        borderBottomLeftRadius:50,
        height:65,
       },
+      headerrate:{
+        backgroundColor:'#222ba8',
+        borderBottomRightRadius:50,
+        borderBottomLeftRadius:50,
+        height:145,
+       },
       headetext:{
           color:'#fff',
           fontSize:16,
           paddingTop:17,
           paddingLeft:17,
+           width:'100%'
+         },
+
+         rateheadetext:{
+          color:'#fff',
+          fontSize:20,
+          paddingTop:20,
+          paddingLeft:10,
            width:'100%'
          },
 
@@ -54,6 +68,23 @@ export default StyleSheet.create({
               borderRadius:30,
               color:'#000'
          },
+         groomingnotification:{
+          position:'absolute',
+          textAlign:'center',
+           right: 0,
+           paddingTop:4,
+           top:0,
+            width:30,
+            height:30,
+            backgroundColor:'#222ba8',
+            fontWeight:'bold',
+            borderRadius:30,
+            color:'#fff'
+       },
+
+       bottomspacing:{
+        paddingBottom:30,
+       },
       
       Wrappercontainer:{
         width: dimensions.fullWidth,
@@ -147,6 +178,11 @@ export default StyleSheet.create({
         marginRight:20,
         position: 'absolute', 
         bottom: 10, 
+      },
+
+      bottomviewreview:{
+        position:"absolute", 
+        bottom:90,
       },
 
       containerCalendar:{
@@ -270,10 +306,11 @@ export default StyleSheet.create({
       },
       buttonprimarybtn:{
         width:'96%',
-        
-       
       },
-      
+
+      ratingspacer:{
+        paddingTop:80,
+      },
          primarybtn:{
             width:"100%",
             backgroundColor: colors.primary,
@@ -282,6 +319,15 @@ export default StyleSheet.create({
             justifyContent:'center',
             alignItems:'center',
          },
+
+         submitfooterbtn:{
+          backgroundColor: colors.primary,
+          borderWidth: 0,
+          borderRadius: 38,
+          padding:5,
+          justifyContent:'center',
+          alignItems:'center',
+       },
 
 
          confirmbtn:{
@@ -458,6 +504,18 @@ export default StyleSheet.create({
           inputBLock:{
               borderBottomWidth:2,
               marginBottom:padding.sm,
+          },
+
+          headingMainappointment:{
+            width:'100%',
+            fontSize:20,
+            lineHeight:28,
+            paddingLeft:10,
+            textAlign:'left',
+            color:'#222ba8',
+            textTransform: 'uppercase',
+            fontSize:13,
+            fontWeight:'bold',
           },
           
           spacingBottom:{
@@ -891,18 +949,20 @@ export default StyleSheet.create({
         padding: 10,
         borderRadius:20,
       },
+
       textactivetime :{
         color:'#fff',
         fontSize:16,
       },
+
       GdoneImage:{
         width:154,
         height:124,
         marginBottom:24,
       },
-      SelectVaccinationWrapper:{
 
-          width:'100%',
+      SelectVaccinationWrapper:{
+           width:'100%',
           flex:1,
           paddingLeft:10,
           paddingRight:10,
@@ -995,14 +1055,23 @@ export default StyleSheet.create({
         marginLeft:15,
         marginRight:15,
         marginBottom:15,
-        shadowOffset:{ width: 20, height: 20, },
-        shadowColor: 'black',
-        shadowOpacity: 1.0,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.52,
+        shadowRadius: 2.22,
+        elevation: 3,
         borderRadius:6,
       },
 
       dateblocktext: {
         color:'#222ba8'
+      },
+
+      appointmentnamepricewrapper:{
+        flexDirection:'row',
       },
 
       confirmdate: {
@@ -1013,8 +1082,8 @@ export default StyleSheet.create({
 
       appointdateblock:{
         backgroundColor:'#f2f2f2',
-        padding:10,
-        width:60,
+        padding:8,
+        width:70,
       
        },
 
@@ -1036,6 +1105,7 @@ export default StyleSheet.create({
         fontSize:32,
         fontWeight: 'bold',
         color:'#222ba8',
+        textAlign:'center'
       },
       dateblocktext:{
         textAlign:'center',
@@ -1049,12 +1119,36 @@ export default StyleSheet.create({
         marginBottom:15,
       },
 
+      appointmentproductheading:{
+        fontSize:16,
+        color:'#231f20',
+        marginBottom:2,
+      },
+
       appointmentproducttime: {
         fontSize:14,
         color:'#222ba8',
       },
+
+      appointmentproductnameprice: {
+        fontSize:14,
+        color:'#8d8d8d',
+      },
+
       deleteappointmenticon:{
         marginBottom: 15,
+      },
+      mr10:{
+          marginRight:10
+      },
+      appointmentdot:{
+        width:4,
+        height:4,backgroundColor:'#8d8d8d',
+        borderRadius:30,
+        marginLeft:10,
+        marginRight:5,
+        marginTop:8,
+
       },
 
       productprice:{
@@ -1068,8 +1162,19 @@ export default StyleSheet.create({
         paddingTop:7,
         paddingBottom:7,
       },
+      mb10:{
+        marginBottom: 10,
+      },
       mb20:{
         marginBottom: 20,
+      },
+      m20:{
+        margin:20,
+      },
+      detailwrapper:{
+        width:'95%',
+        paddingLeft:15,
+        paddingLeft:15,
       },
       picker:{
           borderBottomColor:'#e1e1e1',
@@ -1128,6 +1233,11 @@ export default StyleSheet.create({
       confirmproductwrapper:{
         width:dimensions.fullWidth - 40,
         marginLeft:20,
+      },
+      ratereviewproductwrapper:{
+        width:dimensions.fullWidth - 40,
+        marginLeft:20,
+        marginTop:-20,
       },
 
       centeredView: {
@@ -1196,6 +1306,22 @@ export default StyleSheet.create({
         left:0,
         width: 13, height: 24
       },
+
+      leftIconappointment:{
+        position:'relative',
+        left: 10,
+        width: 13, height: 24
+      },
+
+      lefticonspacing:{
+        paddingLeft:30,
+      },
+      headerWrapper:{
+        width:'100%',
+        position:'relative',
+        paddingBottom:20,
+        paddingTop:20,
+      },
       headerbackpayment:{
         flexDirection:'row',
         width:'100%',
@@ -1237,6 +1363,12 @@ export default StyleSheet.create({
       },
       paymentproductviewc:{
         width:'40%'
+    },
+    paymentproductviewA:{
+      width:'45%'
+    },
+    paymentproductviewAP:{
+      width:'55%'
     },
       paymenttotal:{
         borderTopColor:'#eeeeee',
