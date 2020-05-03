@@ -392,7 +392,7 @@ export default StyleSheet.create({
           width:'100%',
           paddingLeft:25,
           fontSize:16,
-          textTransform:'initial',
+          textTransform:'lowercase',
        },
 
        primaryborderedbtn:{

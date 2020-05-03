@@ -17,8 +17,19 @@ export const User = {
         return http.get('grooming/packages',true)
     },
 
+    getUpcomingAppointments(){
+        return http.get('grooming/appointments/?filter=upcoming',true)
+    },
+
     requestAppointment(data){
         return http.post('grooming/appointments/',data)
+    },
+
+    startGrooming(appointmentId){
+        return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming'})
+    },
+    verifystartGroomingOtp(appointmentId,otp){
+        return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming',token:otp})
     }
 }
 

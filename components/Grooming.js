@@ -9,6 +9,7 @@ import GroomingSelectDate from '../components/GroomingSelectDate'
 import GrommingSelectTime from '../components/GrommingSelectTime'
 import LoginOtp  from '../components/LoginOtp';
 import GroomingConfirmation  from '../components/GroomingConfirmation';
+import GroomingAddPet  from '../components/GroomingAddPet';
 import GroomingScheduled  from '../components/GroomingScheduled';
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
@@ -51,7 +52,8 @@ export default class Grooming extends Component {
     loginVerified(mobile,token,fullName){
         // this.props.navigation.navigate('Home')
         this.__resetAllState()
-        this.state['isGroomingConfirmation']  = true
+        this.state['isPetDetails']  = true
+
         this.groomingData['user'] = {full_name:fullName,mobile_number:mobile}
         this.setState(this.state)
 
@@ -63,8 +65,8 @@ export default class Grooming extends Component {
 
         this.__resetAllState()
         this.state['isSelectDate']  = true
-        if(selectedServiceOrPackage.package){
-            this.groomingData['package'] = selectedServiceOrPackage.package
+        if(selectedServiceOrPackage.packages && selectedServiceOrPackage.packages.length>0){
+            this.groomingData['packages'] = selectedServiceOrPackage.packages
         }
         if(selectedServiceOrPackage.services && selectedServiceOrPackage.services.length>0 ){
             this.groomingData['services'] = selectedServiceOrPackage.services
@@ -88,6 +90,13 @@ export default class Grooming extends Component {
         this.__resetAllState()
         this.state['isLogin']  = true
         this.groomingData['time'] = time
+        this.setState(this.state)
+    }
+
+    petAdded(pets){
+        this.__resetAllState()
+        this.state['isGroomingConfirmation']  = true
+        this.groomingData['pets'] = pets
         this.setState(this.state)
     }
 
@@ -121,6 +130,10 @@ export default class Grooming extends Component {
                 }
                 {this.state.isLoginOtp &&
                     <LoginOtp userData={this.userData} loginVerified={this.loginVerified.bind(this)}></LoginOtp>
+                }
+
+                {this.state.isPetDetails &&
+                <GroomingAddPet data={this.groomingData} next={this.petAdded.bind(this)}></GroomingAddPet>
                 }
 
                 {this.state.isGroomingConfirmation &&

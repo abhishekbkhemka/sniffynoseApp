@@ -32,13 +32,12 @@ export default class GroomingSelectService extends Component {
 
     next(){
         let selected = false
-        let selectedData = {services:[]}
+        let selectedData = {services:[],packages:[]}
         for(let i=0;i<this.state.packages.length;i++){
             let pac = this.state.packages[i]
             if(pac.selected){
                 selected = true
-                selectedData['package'] = pac
-                break;
+                selectedData['packages'].push(pac)
             }
         }
 
@@ -50,8 +49,6 @@ export default class GroomingSelectService extends Component {
                 selectedData['services'].push(service)
             }
         }
-        console.log('***************************test')
-        console.log(selectedData)
         if(selected){
             this.props.next(selectedData)
             return
@@ -93,11 +90,26 @@ export default class GroomingSelectService extends Component {
                         let service = this.servicesMap.get(ser.id)
 
                         if(service){
-                            service.selected = false
+                            // service.selected = false
                             if(pack.selected){
-                                service.packageId = pack.id
+                                if(service.packageIds){
+                                    let index = service.packageIds.indexOf(pack.id)
+                                    if(index == -1){
+                                        service.packageIds.push(pack.id)
+                                    }else{
+                                        service.packageIds.splice(index,1)
+                                    }
+                                }else{
+                                    service.packageIds =[pack.id]
+                                }
+
                             }else{
-                                delete  service.packageId
+                                if(service.packageIds){
+                                    let index = service.packageIds.indexOf(pack.id)
+                                    if(index !=-1){
+                                        service.packageIds.splice(index,1)
+                                    }
+                                }
 
                             }
                         }
@@ -105,7 +117,7 @@ export default class GroomingSelectService extends Component {
 
                     }
                 }else{
-                    pack.selected = false
+                    // pack.selected = false
                 }
             }
             this.setState({packages:this.state.packages,services:this.state.services})
