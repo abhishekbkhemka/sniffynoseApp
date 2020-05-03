@@ -20,7 +20,7 @@ export default class GroomingCompletePayment extends Component {
                <Image
                     style={styles.leftIconpayment}
                     source={require('../assets/images/lefticon.png')}/>
-                    <Text style={styles.colorPrimarybtn, styles.gobacktext}>Complete Payment</Text>
+                    <Text style={[styles.colorPrimarybtn, styles.gobacktext]}>Complete Payment</Text>
                 </TouchableOpacity>
                </View>
               <View>

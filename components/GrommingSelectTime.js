@@ -25,7 +25,7 @@ export default class GrommingSelectTime extends Component {
         this.setState({selectedTime:time})
     }
 
-    requestAppointment(){
+    next(){
         if(!this.state.selectedTime){
             Alert.alert('Please select time range')
             return
@@ -41,23 +41,23 @@ export default class GrommingSelectTime extends Component {
                     <Text  style={styles.headingMain}>Select a Time!</Text>
                 </View>
                     <Body style={styles.paddingtopbottomSpacing}>
-                        <TouchableOpacity style={styles.buttontertiary} onPress={()=>this.selectTime('morning')}>
+                        <TouchableOpacity style={this.state.selectedTime == 'morning'?[styles.buttontertiary,styles.activeselectedtime,styles.textactivetime]:styles.buttontertiary} onPress={()=>this.selectTime('morning')}>
                            
-                            <Text style={styles.TextStylephone}>Morning (9:30 AM - 12 PM)</Text>
+                            <Text style={this.state.selectedTime == 'morning'?styles.textactivetime:styles.TextStylephone}>Morning (9:30 AM - 12 PM)</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttontertiary} onPress={()=>this.selectTime('afternoon')}>
-                            <Text style={styles.TextStylephone}> Afternoon (12 PM - 3 PM)</Text>
+                        <TouchableOpacity style={this.state.selectedTime == 'afternoon'?[styles.buttontertiary,styles.activeselectedtime,styles.textactivetime]:styles.buttontertiary} onPress={()=>this.selectTime('afternoon')}>
+                            <Text style={this.state.selectedTime == 'afternoon'?styles.textactivetime:styles.TextStylephone}> Afternoon (12 PM - 3 PM)</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={styles.buttontertiary} onPress={()=>this.selectTime('evening')}>
-                            <Text style={styles.TextStylephone}>Evening (3 PM - 6 PM)</Text>
+                        <TouchableOpacity style={this.state.selectedTime == 'evening'?[styles.buttontertiary,styles.activeselectedtime,styles.textactivetime]:styles.buttontertiary} onPress={()=>this.selectTime('evening')}>
+                            <Text style={this.state.selectedTime == 'evening'?styles.textactivetime:styles.TextStylephone}>Evening (3 PM - 6 PM)</Text>
                         </TouchableOpacity>
 
 
                     </Body>
-                    <Button style={styles.primarybtn} onPress={()=>this.requestAppointment()}>
-                            <Text  style={styles.colorPrimarybtn}>Request Appointment</Text>
+                    <Button style={styles.primarybtn} onPress={()=>this.next()}>
+                            <Text  style={styles.colorPrimarybtn}>Next</Text>
                       </Button> 
                 </CardItem>
                   

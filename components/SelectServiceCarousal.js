@@ -21,10 +21,10 @@ const GroomingCarousalList = ({item, infoIcon,showInfo,select}) => (
         }}>
             <TouchableOpacity onPress={()=>select(item)}>
            <View>
-           <View style={(item.selected || item.packageId) ?styles.serviceBlock:''}>
+           <View style={(item.selected || (item.packageIds && item.packageIds.length>0)) ?styles.serviceBlock:''}>
               <Image source={{uri:item.icon}} style={{height: 119, width: 125}}/>
               <Text style={styles.plan}>{'INR '+item.price}</Text>
-               {(item.selected || item.packageId) && <TouchableHighlight style={styles.checkclick}>
+               {(item.selected || (item.packageIds && item.packageIds.length>0)) && <TouchableHighlight style={styles.checkclick}>
                    <Image source={checkIcon} style={{height: 20, width: 20}}/>
                   </TouchableHighlight>}
            </View>

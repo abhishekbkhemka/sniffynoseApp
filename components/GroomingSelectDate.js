@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View , ScrollView} from 'react-native';
+import { Text, View , ScrollView,Alert} from 'react-native';
 import { Card, CardItem, Body, Button} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
@@ -27,6 +27,10 @@ export default class GroomingSelectDate extends Component {
         this.setState({selected: day.dateString});
       }
       next(){
+        if(!this.state.selected){
+            Alert.alert('Please select a date')
+            return
+        }
           this.props.next(new Date(this.state.selected))
       }
     

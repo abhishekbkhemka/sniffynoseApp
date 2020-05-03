@@ -9,14 +9,31 @@ import {
 } from "react-native";
 import { H2, Button, Card, CardItem, Body, Item, Input, Label} from 'native-base';
 import styles from '../assets/styles/styles';
+import {User} from '../services/UserService'
+
 
 export default class  HomeModalOtp extends Component {
   state = {
-    modalVisible: false
+    modalVisible: true
   };
+
+  constructor(props){
+      super(props)
+  }
 
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
+  }
+
+    otpVerify(){
+      let that = this
+      if(this.props.action=='start-grooming'){
+          User.verifystartGroomingOtp(that.props.data.id,123456).then(res=>{
+              that.props.otpVerified(res)
+          }).catch(err=>{
+              Alert.alert(err)
+          })
+      }
   }
 
   render() {
@@ -45,15 +62,20 @@ export default class  HomeModalOtp extends Component {
                                
                             </Body>
                             </CardItem>
-                            <View style={styles.buttonprimaryWrapper}>
-                            <Button style={[styles.primarybtn, styles.buttonprimarybtn]}>
+                {this.props.action == 'start-grooming' && <View style={styles.buttonprimaryWrapper}>
+                            <Button style={[styles.primarybtn, styles.buttonprimarybtn]} onPress={()=>{this.otpVerify()}}>
                                     <Text  style={styles.colorPrimarybtn}>Start Grooming</Text>
                                 </Button>
-                            </View>
+                            </View>}
+                {this.props.action == 'end-grooming' && <View style={styles.buttonprimaryWrapper}>
+                    <Button style={[styles.primarybtn, styles.buttonprimarybtn]}>
+                        <Text  style={styles.colorPrimarybtn}>End Grooming</Text>
+                    </Button>
+                </View>}
             </View>
             <View style={{flex:1, alignItems:'center'}}>
                <Button style={[styles.secondarybtn,styles.borderbtnSecondary]} onPress={() => {
-                  this.setModalVisible(!modalVisible);
+                  this.props.closeMe();
                 }}>
                 <Text style={styles.colorSecondarybtn}>Close</Text>
               </Button>
@@ -63,11 +85,7 @@ export default class  HomeModalOtp extends Component {
         </Modal>
 
         
-        <Button style={styles.primarybtn}  onPress={() => {
-            this.setModalVisible(true);
-          }}>
-                            <Text  style={styles.colorPrimarybtn}>Start Grooming</Text>
-                      </Button>
+
       </View>
     );
   }
