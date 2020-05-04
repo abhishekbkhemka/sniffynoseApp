@@ -10,6 +10,7 @@ import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
+import AppointmentsScreen from "./screens/AppointmentsScreen";
 
 import BottomMenu from './components/BottomMenu';
 
@@ -55,11 +56,13 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
           <NavigationContainer>
-              <Stack.Navigator initialRouteName="Home" screenOptions={{
+              <Stack.Navigator initialRouteName="Appointment" screenOptions={{
                   headerShown: false
               }}>
+                
                   <Stack.Screen name="Home" component={HomeScreen} />
-                  <Stack.Screen name="Grooming" component={GroomingScreen} />
+                  <Stack.Screen name="Grooming" component={GroomingScreen} /> 
+                  <Stack.Screen name="Appointment" component={AppointmentsScreen} />
               </Stack.Navigator>
           </NavigationContainer>
 

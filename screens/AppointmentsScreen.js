@@ -1,17 +1,18 @@
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { SplashScreen } from 'expo';
+import AppointmentCard from '../components/AppointmentCard';
+import AppointmentDetails from '../components/AppointmentDetails';
+import AppointmentRateReview from '../components/AppointmentRateReview';
 
 
-export default function AppointmentsScree() {
+export default function AppointmentsScreen() {
     return (
         <View style={styles.container}>
-            <Text>
-                Components:
-                1. Appointment Card
-                2. Appointment Details
-                3. Appointment rate and review
-            </Text>
+
+            {/* <AppointmentCard></AppointmentCard> */}
+            {/* <AppointmentDetails></AppointmentDetails> */}
+            <AppointmentRateReview></AppointmentRateReview>
+          
         </View>
     );
 }
