@@ -11,7 +11,7 @@ import Moment from 'moment';
 export default class GroomingConfirmation extends Component {
   
 
-    name = ''
+    name = null
     petName = ''
     petBreed = ''
     price = 0
@@ -49,7 +49,6 @@ export default class GroomingConfirmation extends Component {
                   if (!(service.packageIds && service.packageIds.length > 0)) {
                       services.push(service.name)
                       this.price += service.price
-
 
                   }
               }
@@ -247,13 +246,14 @@ export default class GroomingConfirmation extends Component {
 
 
                 {/*</CardItem>*/}
-                <View style={{width:'100%', marginTop:15}}>
-                      <Button style={styles.primarybtn} onPress={()=>this.confirmAppointment()}>
-                            <Text  style={styles.colorPrimarybtn} >Confirm Appointment</Text>
-                      </Button>
-                </View>
+
                     {/**/}
             </Card>}
+    <View style={{width:'100%', marginTop:15}}>
+        <Button style={styles.primarybtn} onPress={()=>this.confirmAppointment()}>
+            <Text  style={styles.colorPrimarybtn} >Confirm Appointment</Text>
+        </Button>
+    </View>
 </View>
     </ScrollView>
         )

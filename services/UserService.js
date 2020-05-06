@@ -5,20 +5,32 @@ export const User = {
     },
 
     signup(userData){
-        return http.post('users/',userData,true)
+        return http.post('signup/',userData,true)
+    },
+
+    getUserProfile(id){
+        return http.get('users/'+id+'/',true)
     },
 
 
     getServices(){
-        return http.get('grooming/services',true)
+        return http.get('grooming/services')
     },
 
     getPackages(){
-        return http.get('grooming/packages',true)
+        return http.get('grooming/packages')
     },
 
     getUpcomingAppointments(){
         return http.get('grooming/appointments/?filter=upcoming',true)
+    },
+
+    getPastAppointments(){
+        return http.get('grooming/appointments/?filter=past',true)
+    },
+
+    getRequestedAppointments(){
+        return http.get('grooming/appointments/?filter=requested',true)
     },
 
     requestAppointment(data){

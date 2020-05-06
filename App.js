@@ -6,7 +6,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
@@ -15,6 +14,10 @@ import AppointmentsScreen from "./screens/AppointmentsScreen";
 import BottomMenu from './components/BottomMenu';
 
 const Stack = createStackNavigator();
+
+String.prototype.title = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
@@ -65,6 +68,7 @@ export default function App(props) {
                   <Stack.Screen name="Appointment" component={AppointmentsScreen} />
               </Stack.Navigator>
           </NavigationContainer>
+          <BottomMenu></BottomMenu>
 
 
         {/*<NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}

@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import * as Font from 'expo-font';
 import { Card, CardItem, Text, Body, Item, Input, Label, Button,View} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/styles/styles';
 import { User } from '../services/UserService'
+import  helper from '../Helper'
+
 
 
 export default class LoginOtp extends Component {
@@ -24,8 +27,8 @@ export default class LoginOtp extends Component {
         let mobile = that.props.userData.mobile
         let email = that.props.userData.email
         let fullname = that.props.userData.fullname
-        User.signup({mobile:mobile,email:email,fullname:fullname,token:that.state.token}).then((res)=>{
-            console.log(res)
+        User.signup({mobile:mobile,email:email,fullname:fullname,token:that.state.token}).then(async (res)=>{
+            helper.setLocalUserProfile(res)
             that.props.loginVerified(mobile,this.state.token,fullname)
         }).catch((err) => {
             err.response.json().then(function(object){

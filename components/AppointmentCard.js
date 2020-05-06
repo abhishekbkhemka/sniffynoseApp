@@ -5,6 +5,10 @@ import styles from '../assets/styles/styles';
 import AppointmentTab from './AppointmentTab';
 
 export default class AppointmentCard extends Component {
+
+    showAppointmentDetails(appt){
+        this.props.showAppointmentDetails(appt)
+    }
     render() {
         return (
            
@@ -20,13 +24,13 @@ export default class AppointmentCard extends Component {
                <View>
                 <Tabs>
                     <Tab heading="All">
-                    <AppointmentTab></AppointmentTab>
+                    <AppointmentTab tab={'all'} showAppointmentDetails={this.showAppointmentDetails.bind(this)}></AppointmentTab>
                     </Tab>
                     <Tab heading="Upcoming">
-                    <AppointmentTab></AppointmentTab>
+                    <AppointmentTab tab={'upcoming'}></AppointmentTab>
                     </Tab>
-                    <Tab heading="Select Date">
-                    <AppointmentTab></AppointmentTab>
+                    <Tab heading="Past">
+                    <AppointmentTab tab={'past'}></AppointmentTab>
                     </Tab>
                </Tabs>
         </View>
