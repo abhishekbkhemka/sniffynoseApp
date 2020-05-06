@@ -11,7 +11,7 @@ import Moment from 'moment';
 export default class GroomingConfirmation extends Component {
   
 
-    name = ''
+    name = null
     petName = ''
     petBreed = ''
     price = 0
@@ -49,7 +49,6 @@ export default class GroomingConfirmation extends Component {
                   if (!(service.packageIds && service.packageIds.length > 0)) {
                       services.push(service.name)
                       this.price += service.price
-
 
                   }
               }

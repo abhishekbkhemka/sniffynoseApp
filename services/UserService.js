@@ -25,6 +25,14 @@ export const User = {
         return http.get('grooming/appointments/?filter=upcoming',true)
     },
 
+    getPastAppointments(){
+        return http.get('grooming/appointments/?filter=past',true)
+    },
+
+    getRequestedAppointments(){
+        return http.get('grooming/appointments/?filter=requested',true)
+    },
+
     requestAppointment(data){
         return http.post('grooming/appointments/',data)
     },
