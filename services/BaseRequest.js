@@ -9,7 +9,9 @@ export const handleResponse = function (response) {
             return response.json();
         // }
     } else {
+
         let error = new Error(response);
+        error.status = response.status
         error.response = response
         throw error
     }

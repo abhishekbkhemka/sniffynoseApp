@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, ScrollView, Image, TouchableOpacity } from 'react-native';
-import { Card,  H2} from "native-base";
+import {Button, Card, H2} from "native-base";
 import styles from '../assets/styles/styles';
 import Moment from 'moment'
 
@@ -103,10 +103,13 @@ export default class AppointmentDetails extends Component {
                                 </View>
 
                                 <View style={styles.paymentproductblock}>
-                                    <Text style={styles.paymentsubtitle}>lllll</Text>
+                                    <Text style={styles.paymentsubtitle}>{this.props.appointment.notes}</Text>
                                 </View>
                             </Card>}
                       </View>
+                    {!this.props.appointment.groomer_rating && <Button style={styles.submitfooterbtn} onPress={()=>this.props.rateAndReview()} >
+                        <Text  style={styles.colorPrimarybtn}>Rate and Review</Text>
+                    </Button>}
                   </View>
             </ScrollView>
         )
