@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as Font from 'expo-font';
+import { ScrollView} from 'react-native';
 import { Card, CardItem, Text, Body, Item, Input, Label, Button,View} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import styles from '../assets/styles/styles';
@@ -61,7 +62,7 @@ export default class ContactDetails extends Component {
     render() {
 
         return (
-
+            <ScrollView>
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.7)'}}>
             <View style={styles.bottomViewModal}>
           
@@ -111,7 +112,7 @@ export default class ContactDetails extends Component {
                 </View>
             </View>
             </View>
-
+            </ScrollView>
           
 
         )
