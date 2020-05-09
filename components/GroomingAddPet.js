@@ -1,11 +1,12 @@
 import React, { useState, Component } from 'react';
-import {View, ScrollView, Image, Picker,Alert,KeyboardAvoidingView} from 'react-native';
+import {View, ScrollView, Image, Picker,Alert,TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import { H2, Card, CardItem, Text, Body, Item, Input, Label, Button} from "native-base";
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { User } from '../services/UserService'
 import styles from '../assets/styles/styles';
 import {MONTHS,DAY} from '../constants/Constant'
+import { dimensions } from '../assets/styles/base';
 const BREEDS = [
     "Affenpinscher",
     "Afghan Hound",
@@ -525,14 +526,19 @@ export default class GroomingAddPet extends Component {
         return (
 
 
-            <ScrollView>
-                <View style={{flex:1, justifyContent: 'flex-start', width:'96%' , margin: 'auto'}}>
+           
 
+                <View style={{flex:1, width:'96%' , height:dimensions.fullHeight, margin: 'auto'}}>
+                     
                     <View style={[styles.headingWrapper, styles.mb20]}>
+                        <TouchableOpacity style={[styles.headingMain, styles.mt20]}>
+                            <Image style={styles.leftIcon}  source={require('../assets/images/lefticon.png')}/>
+                        </TouchableOpacity>
                         <Text  style={styles.headingMain}>Pet Details!</Text>
                     </View>
-
-                    {this.state.pets.map(pet=>(
+                    <ScrollView style={styles.scrollviewwrapper}>
+                    <View style={{flex:1, justifyContent:'flex-end', backgroundColor:'red'}}>
+                     {this.state.pets.map(pet=>(
                         <View key={pet.id} style={styles.confirmblock}>
                             {pet.age &&
                             <View style={styles.appointdateblock}>
@@ -549,13 +555,10 @@ export default class GroomingAddPet extends Component {
                         {/*</View>}*/}
                     </View>))}
 
-
-
-
                     <View style={styles.mainwrapper}>
                         <Card transparent>
-                            <CardItem style={styles.cardWrapper}>
-                                <Body style={styles.paddingtopbottomSpacing}>
+                            <CardItem style={styles.cardWrapperdetail}>
+                                <Body style={styles.paddingbottomSpacing}>
                                 <Text  style={styles.HeadingBlock}>Doggo Details (Optional)</Text>
                                 <View style={styles.picker}>
                                     <Picker  style={styles.selectpicker} selectedValue={this.state.breed }
@@ -623,9 +626,12 @@ export default class GroomingAddPet extends Component {
                             </View>
 
                         </Card>
+                       </View>
+                   
                     </View>
+                    </ScrollView>
                 </View>
-            </ScrollView>
+           
         )
     }
 }

@@ -12,6 +12,7 @@ import HomeScreen from "./screens/HomeScreen";
 import AppointmentsScreen from "./screens/AppointmentsScreen";
 
 import BottomMenu from './components/BottomMenu';
+import { dimensions } from './assets/styles/base';
 
 const Stack = createStackNavigator();
 
@@ -68,7 +69,7 @@ export default function App(props) {
                   <Stack.Screen name="Appointment" component={AppointmentsScreen} />
               </Stack.Navigator>
           </NavigationContainer>
-          <BottomMenu></BottomMenu>
+          {/* <BottomMenu></BottomMenu> */}
 
 
         {/*<NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}
@@ -85,5 +86,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    width:dimensions.fullWidth,
+    height:dimensions.fullHeight
   },
 });

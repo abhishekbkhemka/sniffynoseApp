@@ -121,7 +121,7 @@ export default class Grooming extends Component {
     }
     render(){
         return (
-            <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainer}>
+            <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainerkeboard}>
                 {this.state.isSelectService &&
                     <GroomingSelectService next={this.selectDate.bind(this)} />
                 }

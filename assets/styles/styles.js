@@ -94,6 +94,10 @@ export default StyleSheet.create({
         paddingTop:padding.xl,
         paddingBottom:padding.xl,
       },
+      Wrappercontainerkeboard:{
+        width: dimensions.fullWidth,
+        height: dimensions.fullHeight,
+      },
       LogoWrapper:{
         width: dimensions.fullWidth,
         justifyContent: 'center',
@@ -165,7 +169,7 @@ export default StyleSheet.create({
          marginLeft:20,
         marginRight:20,
         position: 'absolute', 
-         bottom: 70, 
+         bottom: 40, 
       },
 
       bottomViewModal: {
@@ -179,6 +183,7 @@ export default StyleSheet.create({
         position: 'absolute', 
         bottom: 10, 
       },
+      
 
       bottomviewreview:{
         position:"absolute", 
@@ -190,7 +195,7 @@ export default StyleSheet.create({
         justifyContent: 'flex-end',
          alignItems: 'center',
         position:'absolute',
-        bottom:100,
+        bottom:50,
         left:20,
       },
       calendar:{
@@ -283,8 +288,7 @@ export default StyleSheet.create({
         color:'#231f20',
         marginBottom:10,
         paddingTop:0,
-        flex:1,
-      },
+       },
 
       ButtonWrapper:{
         width:"100%",
@@ -295,6 +299,9 @@ export default StyleSheet.create({
 
       paddingtopbottomSpacing:{
         paddingTop:18,
+        paddingBottom:18,
+      },
+      paddingbottomSpacing:{
         paddingBottom:18,
       },
       buttonprimaryWrapper:{
@@ -539,10 +546,16 @@ export default StyleSheet.create({
             paddingTop: 60
         },
 
+        scrollviewwrapper:{
+         justifyContent: 'flex-end',
+          marginBottom: 36,
+          marginTop: 50,
+         },
+
         homeView: {
           alignItems: 'center',
           justifyContent: 'center'
-      },
+         },
           footerWrapper:{
             width:dimensions.fullWidth,
             position:'absolute',
@@ -895,7 +908,7 @@ export default StyleSheet.create({
         paddingLeft:15,
         paddingRight:15,
         backgroundColor:'#f6f6ff',
-        bottom:60,
+        bottom:0,
       },
       checkclick:{
           position:'absolute',
@@ -1048,7 +1061,6 @@ export default StyleSheet.create({
       },
 
       confirmblock:{
-        flex:1, 
         width: dimensions.fullWidth - 30,  
         flexDirection: 'row', 
         backgroundColor: '#fff',
@@ -1168,6 +1180,9 @@ export default StyleSheet.create({
       mb20:{
         marginBottom: 20,
       },
+      mt20:{
+        marginTop: 20,
+      },
       m20:{
         margin:20,
       },
@@ -1197,7 +1212,7 @@ export default StyleSheet.create({
       mainwrapper:{
        width:'98%' , marginLeft: 10,
       },
-
+     
       groomingbg:{
         backgroundColor:'#cdf0f3',
         width:'100%',
@@ -1258,6 +1273,11 @@ export default StyleSheet.create({
           width: 0,
           height: 2
         },
+        containerkeyboard: {
+        justifyContent: 'center',
+        backgroundColor: '#ecf0f1',
+        padding: 8,
+  },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5
@@ -1310,6 +1330,11 @@ export default StyleSheet.create({
       leftIconappointment:{
         position:'relative',
         left: 10,
+        width: 13, height: 24
+      },
+
+      leftIcon:{
+        position:'relative',
         width: 13, height: 24
       },
 
