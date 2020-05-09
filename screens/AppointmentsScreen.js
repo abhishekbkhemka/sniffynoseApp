@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Appointment from "../components/Appointment";
+import AppointmentRateReview from "../components/AppointmentRateReview";
 
 
 export default function AppointmentsScreen() {

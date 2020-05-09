@@ -6,6 +6,7 @@ import {Ionicons} from "@expo/vector-icons";
 import  helper from '../Helper'
 import AppointmentCard from "./AppointmentCard";
 import AppointmentDetails from "./AppointmentDetails";
+import AppointmentRateReview from "./AppointmentRateReview";
 
 export default class Appointment extends Component {
     constructor(props){
@@ -31,6 +32,21 @@ export default class Appointment extends Component {
     goToHome(){
         this.props.navigation.navigate('Home')
     }
+    rateAndReview(){
+        if(this.appointment){
+            this.__resetAllState()
+            this.state['appointmentRate'] = true
+            this.setState(this.state)
+        }
+    }
+
+    onRateAndReviewSubmit(appointment){
+        console.log(appointment)
+        this.appointment = appointment
+        this.__resetAllState()
+        this.state['appointmentDetails'] = true
+        this.setState(this.state)
+    }
 
     showAppointmentDetails(appt){
         this.appointment = appt
@@ -40,9 +56,10 @@ export default class Appointment extends Component {
     }
     render(){
         return (
-            <View >
+            <View style={localStyles.container} >
                 {this.state.myAppointments &&  <AppointmentCard showAppointmentDetails={this.showAppointmentDetails.bind(this)}></AppointmentCard>}
-                {this.state.appointmentDetails &&  <AppointmentDetails appointment={this.appointment}></AppointmentDetails>}
+                {this.state.appointmentDetails &&  <AppointmentDetails rateAndReview={this.rateAndReview.bind(this)} appointment={this.appointment}></AppointmentDetails>}
+                {this.state.appointmentRate &&  <AppointmentRateReview onSubmit={this.onRateAndReviewSubmit.bind(this)} defaultRate={3} appointment={this.appointment}></AppointmentRateReview>}
 
             </View>
 
@@ -50,3 +67,11 @@ export default class Appointment extends Component {
 
     }
 }
+
+const localStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    }
+})
+

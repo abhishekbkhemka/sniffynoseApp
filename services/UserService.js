@@ -40,6 +40,10 @@ export const User = {
     startGrooming(appointmentId){
         return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming'})
     },
+
+    rateGrooming(appointmentId,rate,comments){
+        return http.post('grooming/appointments/'+appointmentId+'/rate/',{rate:rate,comments:comments})
+    },
     verifystartGroomingOtp(appointmentId,otp){
         return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming',token:otp})
     }
