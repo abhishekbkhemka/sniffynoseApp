@@ -485,6 +485,13 @@ export default StyleSheet.create({
           fontSize:16,
           paddingLeft:1,
         },
+
+        selectedinputfiledLabel:{
+          width: '100%',
+          color:'#231f20',
+          fontSize:16,
+          paddingLeft:1,
+        },
         cardWrapper:{
           borderRadius:10,
           flexDirection:"column",
@@ -506,6 +513,15 @@ export default StyleSheet.create({
           fontSize:20,
           lineHeight:28,
           paddingLeft:10,
+          textAlign:'left',
+        },
+        
+        headingMaingrooming:{
+          width:'100%',
+          fontSize:20,
+          lineHeight:28,
+          paddingLeft:20,
+          paddingTop:20,
           textAlign:'left',
         },
           inputBLock:{
@@ -545,6 +561,12 @@ export default StyleSheet.create({
             right: 0,
             paddingTop: 60
         },
+        viewwrapper:{
+          width:'100%',
+          position:'relative',
+          flexDirection:'row',
+          justifyContent:'space-between',
+        },
 
         scrollviewwrapper:{
          justifyContent: 'flex-end',
@@ -552,6 +574,24 @@ export default StyleSheet.create({
           marginTop: 50,
          },
 
+         confirmnumber:{
+            width:29,
+            height:29,
+            lineHeight:20,
+            color:'#ffffff',
+            backgroundColor:'#000000',
+            borderRadius:50,
+            justifyContent:'center',
+            alignItems:'center',
+            textAlign:'center',
+            fontSize:15,
+         },
+
+         countappointment:{
+            position:'absolute',
+            top: 20,
+            right:5,
+         },
         homeView: {
           alignItems: 'center',
           justifyContent: 'center'
@@ -1094,7 +1134,7 @@ export default StyleSheet.create({
 
       appointdateblock:{
         backgroundColor:'#f2f2f2',
-        padding:8,
+        padding:1,
         width:70,
       
        },
@@ -1128,7 +1168,12 @@ export default StyleSheet.create({
       appointmentproductname:{
         fontSize:16,
         color:'#231f20',
-        marginBottom:15,
+        marginBottom:10,
+      },
+
+      bottomwrapper:{
+        flex:1, 
+        justifyContent:'flex-end'
       },
 
       appointmentproductheading:{
@@ -1183,8 +1228,26 @@ export default StyleSheet.create({
       mt20:{
         marginTop: 20,
       },
+      t40:{
+        top: 40,
+        position:'relative',
+      },
+      mt10:{
+        marginTop: 10,
+      },
+      ml10:{
+        marginLeft: 10,
+      },
+
+      ml20:{
+        marginLeft: 20,
+      },
+
       m20:{
         margin:20,
+      },
+      w50:{
+        width:'50%',
       },
       detailwrapper:{
         width:'95%',
@@ -1208,6 +1271,7 @@ export default StyleSheet.create({
         bottom:16,
         fontSize:16,
         color:'#8d8d8d',
+        zIndex:99,
       },
       mainwrapper:{
        width:'98%' , marginLeft: 10,

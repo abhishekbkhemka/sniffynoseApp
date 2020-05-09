@@ -537,7 +537,7 @@ export default class GroomingAddPet extends Component {
                         <Text  style={styles.headingMain}>Pet Details!</Text>
                     </View>
                     <ScrollView style={styles.scrollviewwrapper}>
-                    <View style={{flex:1, justifyContent:'flex-end', backgroundColor:'red'}}>
+                    <View style={styles.bottomwrapper}>
                      {this.state.pets.map(pet=>(
                         <View key={pet.id} style={styles.confirmblock}>
                             {pet.age &&
@@ -562,17 +562,14 @@ export default class GroomingAddPet extends Component {
                                 <Text  style={styles.HeadingBlock}>Doggo Details (Optional)</Text>
                                 <View style={styles.picker}>
                                     <Picker  style={styles.selectpicker} selectedValue={this.state.breed }
-                                             onValueChange={val => this.setState({ breed: val })}
-                                    >
-                                        <Picker.Item label="Select doggo's breed" value={'na'} />
-                                        {BREEDS.map((v) =>{
-                                            return <Picker.Item key={v} label={v} value={v} />
-
-                                        })
-                                        }
-
-                                    </Picker>
-                                </View>
+                                             onValueChange={val => this.setState({ breed: val })}>
+                                            <Picker.Item label="Select doggo's breed" value={'na'} />
+                                            {BREEDS.map((v) =>{
+                                                return <Picker.Item key={v} label={v} value={v} />
+                                               })
+                                            }
+                                     </Picker>
+                                 </View>
                                 <View style={{width:'100%', position:'relative'}}>
                                     <Text style={styles.years}>Years</Text>
                                     <Item  style={styles.inputBLock} floatingLabel>
@@ -580,8 +577,7 @@ export default class GroomingAddPet extends Component {
                                         <Input  returnKeyType={ 'next' } keyboardType="phone-pad"
                                                 onSubmitEditing={() => { this.focusTheField('name'); }}
                                                 value={this.state.age}
-                                                onChangeText={val => this.setState({ age: val })}
-                                        />
+                                                onChangeText={val => this.setState({ age: val })}/>
                                     </Item>
                                 </View>
 
@@ -603,12 +599,9 @@ export default class GroomingAddPet extends Component {
                                         getRef={input => { this.inputs['comments'] = input }}
                                         returnKeyType={ 'done' }
                                         value={this.state.notes}
-                                        onChangeText={val => this.setState({ notes: val })}
-
-                                    />
+                                        onChangeText={val => this.setState({ notes: val })} />
                                 </Item>
-
-                                </Body>
+                              </Body>
 
 
 
