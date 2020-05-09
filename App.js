@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,BackHandler,Alert } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
@@ -23,7 +23,15 @@ export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
   const containerRef = React.useRef();
-  const { getInitialState } = useLinking(containerRef);
+  const { getInitialState } = useLinking(containerRef)
+    BackHandler.addEventListener('hardwareBackPress', function() {
+        // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+        // Typically you would use the navigator here to go to the last state.
+        alert('kkk')
+
+
+        return false;
+    });
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -49,6 +57,26 @@ export default function App(props) {
     }
 
     loadResourcesAndDataAsync();
+
+      // const backAction = () => {
+      //     Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      //         {
+      //             text: "Cancel",
+      //             onPress: () => null,
+      //             style: "cancel"
+      //         },
+      //         { text: "YES", onPress: () => BackHandler.exitApp() }
+      //     ]);
+      //     return true;
+      // };
+      //
+      // const backHandler = BackHandler.addEventListener(
+      //     "hardwareBackPress",
+      //     backAction
+      // );
+      //
+      // return () => backHandler.remove();
+
   }, []);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
