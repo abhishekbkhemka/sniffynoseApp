@@ -1357,7 +1357,6 @@ export default StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: '#ecf0f1',
         padding: 8,
-  },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5
