@@ -318,14 +318,18 @@ export default StyleSheet.create({
       ratingspacer:{
         paddingTop:80,
       },
-         primarybtn:{
-            width:"100%",
-            backgroundColor: colors.primary,
-            borderWidth: 0,
-            borderRadius: 38,
-            justifyContent:'center',
-            alignItems:'center',
-         },
+
+      requestbgcolor:{
+        backgroundColor: '#28a745',
+      },
+      primarybtn:{
+          width:"100%",
+          backgroundColor: colors.primary,
+          borderWidth: 0,
+          borderRadius: 38,
+          justifyContent:'center',
+          alignItems:'center',
+      },
 
          submitfooterbtn:{
           backgroundColor: colors.primary,
@@ -423,6 +427,10 @@ export default StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         marginTop:15,
+      },
+
+      requesttextcolor:{
+        color:'#ffffff',
       },
 
       colorPrimarybtn:{

@@ -613,8 +613,8 @@ export default class GroomingAddPet extends Component {
                             </View>
 
                             <View style={{width:'100%', marginTop:15}}>
-                                <Button style={styles.primarybtn} onPress={()=>this.requestAppointment()}>
-                                    <Text  style={styles.colorPrimarybtn} >Request Appointment</Text>
+                                <Button style={[styles.primarybtn, styles.requestbgcolor]} onPress={()=>this.requestAppointment()}>
+                                    <Text  style={styles.colorPrimarybtn, styles.requesttextcolor} >Request Appointment</Text>
                                 </Button>
                             </View>
 
