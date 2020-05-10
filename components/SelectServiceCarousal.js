@@ -79,8 +79,8 @@ export default class SelectServiceCarousal extends Component {
           containerCustomStyle={{ backgroundColor: 'transparent' }}
           data={this.state.data}
           renderItem={this.renderListComponent}
-          sliderWidth={sliderWidth}
-          itemWidth={sliderItemWidth}
+          sliderWidth={1000}
+          itemWidth={140}
           activeSlideAlignment={'start'}
           inactiveSlideScale={1}
           inactiveSlideOpacity={1}
