@@ -191,17 +191,19 @@ export default class GroomingConfirmation extends Component {
                         <Card transparent>
                             <CardItem style={styles.cardWrapperdetail}>
                                 <Body style={styles.paddingbottomSpacing}>
+                                <View style={{width:'100%', position:'relative'}}>
                                 <Text  style={styles.HeadingBlock}>Contact Details</Text>
-
-                                <View style={styles.viewwrapper}>
-                                <Item   style={[styles.inputBLock, styles.w50]}>
-                                    <Label style={styles.selectedinputfiledLabel}>Pune</Label>
-                                </Item>
-                                <Item  style={[styles.inputBLock, styles.w50]}>
-                                    <Label style={styles.selectedinputfiledLabel}>Maharashtra</Label>
-                                </Item>
-                                  
+                                        <Switch
+                                            style={styles.switchview}
+                                            tintColor="#b5b5b5"
+                                            onTintColor="#979cde"
+                                            thumbTintColor="#222ba8"
+                                            onValueChange = {this.toggleSwitch}
+                                            value = {this.state.switchValue}/>
+                                
                                 </View>
+
+                                
                               
                                     <Item  style={[styles.inputBLock]} floatingLabel>
                                         <Label style={styles.inputfiledLabel}>Enter House / Flat No *</Label>
@@ -222,20 +224,22 @@ export default class GroomingConfirmation extends Component {
                                     <Label style={styles.inputfiledLabel}>Postal Code *</Label>
                                     <Input/>
                                 </Item>
-                                <View style={{width:'100%', position:'relative'}}>
-                                        <Switch
-                                            style={styles.years}
-                                            tintColor="#b5b5b5"
-                                            onTintColor="#979cde"
-                                            thumbTintColor="#222ba8"
-                                            onValueChange = {this.toggleSwitch}
-                                            value = {this.state.switchValue}/>
+                               
                                     
                                           <Item  style={styles.inputBLock} floatingLabel>
                                             <Label style={styles.inputfiledLabel}>{this.state.switchValue?'Your Place':'Grooming Center'}</Label>
                                             <Input/>
                                           </Item>
-                                </View>
+
+                                          <View style={[styles.viewwrapper, styles.mt20]}>
+                                            <Item   style={[styles.inputBLock, styles.w50]}>
+                                                <Label style={styles.selectedinputfiledLabel}>Pune</Label>
+                                            </Item>
+                                            <Item  style={[styles.inputBLock, styles.w50]}>
+                                                <Label style={styles.selectedinputfiledLabel}>Maharashtra</Label>
+                                            </Item>
+                                        </View>
+                                
                               </Body>
 
 

@@ -604,6 +604,14 @@ export default StyleSheet.create({
           alignItems: 'center',
           justifyContent: 'center'
          },
+         switchview:{
+          position:'absolute',
+          right:0,
+          bottom:12,
+          fontSize:16,
+          color:'#8d8d8d',
+          zIndex:99,
+         },
           footerWrapper:{
             width:dimensions.fullWidth,
             position:'absolute',
