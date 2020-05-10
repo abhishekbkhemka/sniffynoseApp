@@ -225,8 +225,9 @@ export default class GroomingConfirmation extends Component {
                                 <View style={{width:'100%', position:'relative'}}>
                                         <Switch
                                             style={styles.years}
-                                            trackColor={'#222ba8'}
-                                            thumbColor={'gray'}
+                                            tintColor="#b5b5b5"
+                                            onTintColor="#979cde"
+                                            thumbTintColor="#222ba8"
                                             onValueChange = {this.toggleSwitch}
                                             value = {this.state.switchValue}/>
                                     

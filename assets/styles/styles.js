@@ -585,7 +585,7 @@ export default StyleSheet.create({
          confirmnumber:{
             width:29,
             height:29,
-            lineHeight:20,
+            lineHeight:27,
             color:'#ffffff',
             backgroundColor:'#000000',
             borderRadius:50,
