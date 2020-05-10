@@ -940,6 +940,7 @@ export default StyleSheet.create({
         position:'absolute',
         right:12,
       },
+
       LeftplanPart:{
         width:30,
       },
@@ -1353,6 +1354,10 @@ export default StyleSheet.create({
           width: 0,
           height: 2
         },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      },
         containerkeyboard: {
         justifyContent: 'center',
         backgroundColor: '#ecf0f1',
@@ -1496,4 +1501,4 @@ export default StyleSheet.create({
       marginBottom:15,
     },
 
-});  
+  });
