@@ -160,7 +160,7 @@ export default class GroomingConfirmation extends Component {
                 <Text  style={styles.headingMaingrooming}>Confirm your appointment!</Text>
                 <Text  style={[styles.confirmnumber, styles.countappointment]}>2</Text>
          </View>
-         <ScrollView style={styles.scrollviewwrapper}>
+         <ScrollView contentContainerStyle={styles.scrollviewwrapper}>
           <View style={styles.bottomwrapper}>    
              {this.props.data.packages && this.props.data.packages.length>0  && <View style={styles.confirmblock}>
           <View style={styles.appointdateblock}>

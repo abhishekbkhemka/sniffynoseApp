@@ -536,7 +536,7 @@ export default class GroomingAddPet extends Component {
                         </TouchableOpacity>
                         <Text  style={styles.headingMain}>Pet Details!</Text>
                     </View>
-                    <ScrollView style={styles.scrollviewwrapper}>
+                    <ScrollView contentContainerStyle={styles.scrollviewwrapper}>
                     <View style={styles.bottomwrapper}>
                      {this.state.pets.map(pet=>(
                         <View key={pet.id} style={styles.confirmblock}>

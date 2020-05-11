@@ -97,7 +97,7 @@ export default function App(props) {
                   <Stack.Screen name="Appointment" component={AppointmentsScreen} />
               </Stack.Navigator>
           </NavigationContainer>
-          {/* <BottomMenu></BottomMenu> */}
+           <BottomMenu></BottomMenu>
 
 
         {/*<NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}
