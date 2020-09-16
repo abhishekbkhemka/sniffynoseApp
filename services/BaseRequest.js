@@ -1,5 +1,6 @@
-import { BASE_URL } from "../constants/Constant";
+import { BASE_URL ,USER_PROFILE_KEY} from "../constants/Constant";
 import { AsyncStorage } from "react-native";
+
 
 export const handleResponse = function (response) {
     if (response.status === 200 || response.status == 201) {
@@ -8,7 +9,9 @@ export const handleResponse = function (response) {
             return response.json();
         // }
     } else {
+
         let error = new Error(response);
+        error.status = response.status
         error.response = response
         throw error
     }
@@ -41,10 +44,11 @@ export const http = {
         console.log(params)
         post_request.body = JSON.stringify(params);
         console.log('Inside Post',BASE_URL + url,post_request.body)
-        // let user = await AsyncStorage.getItem('user');
-        // user = JSON.parse(user);
+
         if (!isAuthenticationNotRequired ) {
-            post_request.headers['Authorization'] = "ApiKey " + user.username + ':' + user.api_key
+            let up = await AsyncStorage.getItem(USER_PROFILE_KEY);
+            up = JSON.parse(up)
+            post_request.headers['Authorization'] =  "Token " +up.token
         }
 
         return fetch(BASE_URL + url, post_request).then(handleResponse)
@@ -52,12 +56,12 @@ export const http = {
 
     get: async function (requestUrl, authenticate) {
         if (authenticate) {
-            // let user = await AsyncStorage.getItem('user');
-            // user = JSON.parse(user)
+            let up = await AsyncStorage.getItem(USER_PROFILE_KEY);
+            up = JSON.parse(up)
             // if (requestUrl.indexOf('?') == -1) {
             //     requestUrl += '?1=1&username=' + user.username + '&api_key=' + user.api_key
             // }
-            get_request.headers['Authorization'] = "Token " +'cd75f92b8f922148565c666808a73ae277a254a4'
+            get_request.headers['Authorization'] = "Token " + up.token
         }
 
         return fetch(BASE_URL + requestUrl, get_request).then(handleResponse)

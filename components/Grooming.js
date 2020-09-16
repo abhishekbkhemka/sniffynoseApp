@@ -5,11 +5,18 @@ import styles from '../assets/styles/styles';
 import Login from '../components/Login';
 import ContactDetails  from '../components/ContactDetails';
 import GroomingSelectService from '../components/GroomingSelectService';
+import GroomingSelectDate from '../components/GroomingSelectDate'
+import GrommingSelectTime from '../components/GrommingSelectTime'
 import LoginOtp  from '../components/LoginOtp';
+import GroomingConfirmation  from '../components/GroomingConfirmation';
+import GroomingAddPet  from '../components/GroomingAddPet';
+import GroomingScheduled  from '../components/GroomingScheduled';
 import * as Font from "expo-font";
 import {Ionicons} from "@expo/vector-icons";
+import  helper from '../Helper'
 
 export default class Grooming extends Component {
+    groomingData = {}
     constructor(props){
         super(props)
         this.state = {isLogin:false,contactDetails:false,isSelectService:false}
@@ -24,6 +31,12 @@ export default class Grooming extends Component {
         })
         this.setState({isSelectService:true})
     }
+    __resetAllState(){
+
+        for(var key in this.state){
+            this.state[key] = false
+        }
+    }
 
     closeLogin(){
         this.setState({isLogin:false})
@@ -34,17 +47,90 @@ export default class Grooming extends Component {
 
     requestOtp(userData){
         this.userData = userData
-        this.setState({isLoginOtp:true,contactDetails:false,isLogin:false})
+        this.setState({isLoginOtp:true,contactDetails:false,isLogin:false,isSelectService:false})
     }
 
-    loginVerified(mobile,token){
+    loginVerified(mobile,token,fullName){
+        // this.props.navigation.navigate('Home')
+        this.__resetAllState()
+        this.state['isPetDetails']  = true
+
+        this.groomingData['user'] = {full_name:fullName,mobile_number:mobile}
+        this.setState(this.state)
+
+    }
+
+
+
+    selectDate(selectedServiceOrPackage){
+
+        this.__resetAllState()
+        this.state['isSelectDate']  = true
+        if(selectedServiceOrPackage.packages && selectedServiceOrPackage.packages.length>0){
+            this.groomingData['packages'] = selectedServiceOrPackage.packages
+        }
+        if(selectedServiceOrPackage.services && selectedServiceOrPackage.services.length>0 ){
+            this.groomingData['services'] = selectedServiceOrPackage.services
+        }
+        this.setState(this.state)
+    }
+
+    selectTime(selectedDate){
+        console.log(selectedDate)
+        if(!selectedDate){
+            Alert.alert('Please select approximate date of grooming')
+            return
+        }
+        this.__resetAllState()
+        this.state['isSelectTime']  = true
+        this.groomingData['date'] = selectedDate
+        this.setState(this.state)
+    }
+
+    requestAppointment(time){
+        let that = this
+        helper.getLocalUserProfile(function (res) {
+            that.__resetAllState()
+            that.groomingData['time'] = time
+            if(res){
+                that.state['isPetDetails']  = true
+                that.groomingData['user'] = {full_name:res.user.first_name+' '+res.user.last_name,mobile_number:res.mobile_number}
+            }else{
+                that.state['isLogin']  = true
+            }
+            that.setState(that.state)
+        })
+
+    }
+
+    petAdded(pets){
+        this.__resetAllState()
+        this.state['isGroomingConfirmation']  = true
+        this.groomingData['pets'] = pets
+        this.setState(this.state)
+    }
+
+    appointmentRequestConfirmed(){
+        this.__resetAllState()
+        this.state['isGroomingConfirmed']  = true
+        // this.groomingData['time'] = time
+        this.setState(this.state)
+    }
+    goToHome(){
         this.props.navigation.navigate('Home')
     }
     render(){
         return (
-            <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainer}>
+            <KeyboardAvoidingView behavior={Platform.Os == "ios" ? "padding" : "height"} style={styles.Wrappercontainerkeboard}>
                 {this.state.isSelectService &&
-                    <GroomingSelectService />
+                    <GroomingSelectService next={this.selectDate.bind(this)} />
+                }
+
+                {this.state.isSelectDate &&
+                    <GroomingSelectDate next={this.selectTime.bind(this)}  />
+                }
+                {this.state.isSelectTime &&
+                <GrommingSelectTime next={this.requestAppointment.bind(this)}  />
                 }
                 {this.state.isLogin &&
                     <Login closeMe={this.closeLogin.bind(this)} continueWithContactNumber={this.showContactDetails.bind(this)}/>
@@ -54,6 +140,18 @@ export default class Grooming extends Component {
                 }
                 {this.state.isLoginOtp &&
                     <LoginOtp userData={this.userData} loginVerified={this.loginVerified.bind(this)}></LoginOtp>
+                }
+
+                {this.state.isPetDetails &&
+                <GroomingAddPet data={this.groomingData} next={this.petAdded.bind(this)}></GroomingAddPet>
+                }
+
+                {this.state.isGroomingConfirmation &&
+                    <GroomingConfirmation data={this.groomingData} onSuccess={this.appointmentRequestConfirmed.bind(this)} />
+                }
+
+                {this.state.isGroomingConfirmed &&
+                <GroomingScheduled goToHome={this.goToHome.bind(this)} />
                 }
 
 

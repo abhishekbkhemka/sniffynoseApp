@@ -5,12 +5,47 @@ export const User = {
     },
 
     signup(userData){
-        return http.post('users/',userData,true)
+        return http.post('signup/',userData,true)
+    },
+
+    getUserProfile(id){
+        return http.get('users/'+id+'/',true)
     },
 
 
     getServices(){
-        return http.get('grooming/services',true)
+        return http.get('grooming/services')
+    },
+
+    getPackages(){
+        return http.get('grooming/packages')
+    },
+
+    getUpcomingAppointments(){
+        return http.get('grooming/appointments/?filter=upcoming',true)
+    },
+
+    getPastAppointments(){
+        return http.get('grooming/appointments/?filter=past',true)
+    },
+
+    getRequestedAppointments(){
+        return http.get('grooming/appointments/?filter=requested',true)
+    },
+
+    requestAppointment(data){
+        return http.post('grooming/appointments/',data)
+    },
+
+    startGrooming(appointmentId){
+        return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming'})
+    },
+
+    rateGrooming(appointmentId,rate,comments){
+        return http.post('grooming/appointments/'+appointmentId+'/rate/',{rate:rate,comments:comments})
+    },
+    verifystartGroomingOtp(appointmentId,otp){
+        return http.post('grooming/appointments/'+appointmentId+'/action/',{name:'start-grooming',token:otp})
     }
 }
 
