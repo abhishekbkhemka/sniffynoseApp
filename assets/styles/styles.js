@@ -26,6 +26,65 @@ export default StyleSheet.create({
       heightExceptFooter:{
         marginBottom: 90,
       },
+
+      header:{
+       backgroundColor:'#222ba8',
+       borderBottomRightRadius:50,
+       borderBottomLeftRadius:50,
+       height:65,
+      },
+      headerrate:{
+        backgroundColor:'#222ba8',
+        borderBottomRightRadius:50,
+        borderBottomLeftRadius:50,
+        height:145,
+       },
+      headetext:{
+          color:'#fff',
+          fontSize:16,
+          paddingTop:17,
+          paddingLeft:17,
+           width:'100%'
+         },
+
+         rateheadetext:{
+          color:'#fff',
+          fontSize:20,
+          paddingTop:20,
+          paddingLeft:10,
+           width:'100%'
+         },
+
+         headernotification:{
+            position:'absolute',
+            textAlign:'center',
+             right: 30,
+             paddingTop:4,
+             top:16,
+              width:30,
+              height:30,
+              backgroundColor:'#fff',
+              fontWeight:'bold',
+              borderRadius:30,
+              color:'#000'
+         },
+         groomingnotification:{
+          position:'absolute',
+          textAlign:'center',
+           right: 0,
+           paddingTop:4,
+           top:0,
+            width:30,
+            height:30,
+            backgroundColor:'#222ba8',
+            fontWeight:'bold',
+            borderRadius:30,
+            color:'#fff'
+       },
+
+       bottomspacing:{
+        paddingBottom:30,
+       },
       
       Wrappercontainer:{
         width: dimensions.fullWidth,
@@ -34,6 +93,10 @@ export default StyleSheet.create({
         backgroundColor:'#f6f6ff',
         paddingTop:padding.xl,
         paddingBottom:padding.xl,
+      },
+      Wrappercontainerkeboard:{
+        width: dimensions.fullWidth,
+        height: dimensions.fullHeight,
       },
       LogoWrapper:{
         width: dimensions.fullWidth,
@@ -46,7 +109,18 @@ export default StyleSheet.create({
         height: 61,
      },
 
+     logosplash:{
+      width:106,
+      height:84,
+     },
+     splashwrapper:{
+      flex:1, width: dimensions.fullWidth,
+      height: dimensions.fullHeight, backgroundColor:'#f7d82f',
+     },
+
       centerBlock: {
+        width:'100%',
+        height:'100%',
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',     
@@ -65,11 +139,12 @@ export default StyleSheet.create({
         bottom: 0
      },
      Imagebg:{
-        resizeMode: 'contain',
+        resizeMode: 'cover',
+        flex:1,
         width: dimensions.fullWidth,
         height: dimensions.fullHeight,
-        bottom: 0,
-        position: 'absolute',
+        position:'relative',
+        
      },
      
      ImageUploaded:{
@@ -94,7 +169,25 @@ export default StyleSheet.create({
          marginLeft:20,
         marginRight:20,
         position: 'absolute', 
-        bottom: 90, 
+         bottom: 40, 
+      },
+
+      bottomViewModal: {
+        width: dimensions.fullWidth - 40,
+        flex:1,
+       justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom:'5%',
+         marginLeft:20,
+        marginRight:20,
+        position: 'absolute', 
+        bottom: 10, 
+      },
+      
+
+      bottomviewreview:{
+        position:"absolute", 
+        bottom:90,
       },
 
       containerCalendar:{
@@ -102,7 +195,7 @@ export default StyleSheet.create({
         justifyContent: 'flex-end',
          alignItems: 'center',
         position:'absolute',
-        bottom:100,
+        bottom:50,
         left:20,
       },
       calendar:{
@@ -178,7 +271,7 @@ export default StyleSheet.create({
         marginBottom: 4,
         marginRight: 20,
       },
-
+      
      
       HeadingText:{
         width:'100%',
@@ -195,27 +288,57 @@ export default StyleSheet.create({
         color:'#231f20',
         marginBottom:10,
         paddingTop:0,
-        flex:1,
-      },
+       },
 
       ButtonWrapper:{
         width:"100%",
-        flex:1,
+      },
+      fullwidth:{
+          width:'100%',
       },
 
       paddingtopbottomSpacing:{
         paddingTop:18,
         paddingBottom:18,
       },
-      
-         primarybtn:{
-            width:"100%",
-            backgroundColor: colors.primary,
-            borderWidth: 0,
-            borderRadius: 38,
-            justifyContent:'center',
-            alignItems:'center',
-         },
+      paddingbottomSpacing:{
+        paddingBottom:18,
+      },
+      buttonprimaryWrapper:{
+          width:dimensions.fullWidth - 40,
+          paddingLeft:15,
+        paddingRight:10,
+        marginBottom:20,
+          
+      },
+      buttonprimarybtn:{
+        width:'96%',
+      },
+
+      ratingspacer:{
+        paddingTop:80,
+      },
+
+      requestbgcolor:{
+        backgroundColor: '#28a745',
+      },
+      primarybtn:{
+          width:"100%",
+          backgroundColor: colors.primary,
+          borderWidth: 0,
+          borderRadius: 38,
+          justifyContent:'center',
+          alignItems:'center',
+      },
+
+         submitfooterbtn:{
+          backgroundColor: colors.primary,
+          borderWidth: 0,
+          borderRadius: 38,
+          padding:5,
+          justifyContent:'center',
+          alignItems:'center',
+       },
 
 
          confirmbtn:{
@@ -252,6 +375,21 @@ export default StyleSheet.create({
             justifyContent:'center',
             alignItems:'center',
          },
+
+         transparentbtnwborder:{
+          backgroundColor: 'transparent',
+          borderWidth: 1,
+          borderColor:'#d3d3d3',
+          borderRadius: 38,
+          width: dimensions.fullWidth - 40,
+          marginLeft:18,
+          marginRight:18,
+          marginTop:10,
+          paddingTop:8,
+          paddingBottom:8,
+          justifyContent:'flex-start',
+          alignItems:'center',
+         },
          disabledbtn:{
           width:"100%",
           backgroundColor: colors.disabled,
@@ -259,6 +397,13 @@ export default StyleSheet.create({
           borderRadius: 38,
           justifyContent:'center',
           alignItems:'center',
+       },
+       gobacktext:{
+          textAlign:'left',
+          width:'100%',
+          paddingLeft:25,
+          fontSize:16,
+          textTransform:'lowercase',
        },
 
        primaryborderedbtn:{
@@ -282,6 +427,10 @@ export default StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         marginTop:15,
+      },
+
+      requesttextcolor:{
+        color:'#ffffff',
       },
 
       colorPrimarybtn:{
@@ -324,12 +473,30 @@ export default StyleSheet.create({
         paddingTop:20,
         paddingBottom:48,
         color:'#8d8d8d',
+       },
+       headingscheduleText:{
+        color:'#231f20',
+        fontSize: 20,
+        lineHeight:28,
+        marginBottom:15
+       },
 
+       paradetailtext:{
+        fontSize:fonts.sm,
+        paddingBottom:20,
+        color:'#8d8d8d',
        },
 
         inputfiledLabel:{
           width: '100%',
           color:'#a9a9b3',
+          fontSize:16,
+          paddingLeft:1,
+        },
+
+        selectedinputfiledLabel:{
+          width: '100%',
+          color:'#231f20',
           fontSize:16,
           paddingLeft:1,
         },
@@ -356,9 +523,30 @@ export default StyleSheet.create({
           paddingLeft:10,
           textAlign:'left',
         },
+        
+        headingMaingrooming:{
+          width:'100%',
+          fontSize:20,
+          lineHeight:28,
+          paddingLeft:20,
+          paddingTop:20,
+          textAlign:'left',
+        },
           inputBLock:{
               borderBottomWidth:2,
               marginBottom:padding.sm,
+          },
+
+          headingMainappointment:{
+            width:'100%',
+            fontSize:20,
+            lineHeight:28,
+            paddingLeft:10,
+            textAlign:'left',
+            color:'#222ba8',
+            textTransform: 'uppercase',
+            fontSize:13,
+            fontWeight:'bold',
           },
           
           spacingBottom:{
@@ -381,11 +569,49 @@ export default StyleSheet.create({
             right: 0,
             paddingTop: 60
         },
+        viewwrapper:{
+          width:'100%',
+          position:'relative',
+          flexDirection:'row',
+          justifyContent:'space-between',
+        },
 
+        scrollviewwrapper:{
+         justifyContent: 'flex-end',
+          marginBottom: 36,
+          marginTop: 50,
+         },
+
+         confirmnumber:{
+            width:29,
+            height:29,
+            lineHeight:27,
+            color:'#ffffff',
+            backgroundColor:'#000000',
+            borderRadius:50,
+            justifyContent:'center',
+            alignItems:'center',
+            textAlign:'center',
+            fontSize:15,
+         },
+
+         countappointment:{
+            position:'absolute',
+            top: 20,
+            right:5,
+         },
         homeView: {
           alignItems: 'center',
           justifyContent: 'center'
-      },
+         },
+         switchview:{
+          position:'absolute',
+          right:0,
+          bottom:12,
+          fontSize:16,
+          color:'#8d8d8d',
+          zIndex:99,
+         },
           footerWrapper:{
             width:dimensions.fullWidth,
             position:'absolute',
@@ -516,7 +742,8 @@ export default StyleSheet.create({
             position:'absolute',
             zIndex:999,
             bottom:5,
-             paddingTop:10,
+            left: 'auto',
+            paddingTop:10,
             paddingBottom:10,
             },
 
@@ -532,9 +759,14 @@ export default StyleSheet.create({
           margin:10,
         },
         ScheduleBlock:{
-          position:'absolute',
-          top:0,
-          width:dimensions.fullWidth,
+          top:10,
+          width:dimensions.fullWidth - 20,
+        },
+        serviceBlock:{
+          borderWidth:1, 
+          borderColor:'#000',
+           borderRadius:10,
+           width:127
         },
         UpcomingSchedule:{
           backgroundColor:'#f7d82f',
@@ -613,8 +845,8 @@ export default StyleSheet.create({
       plan:{
         position:'absolute',
         zIndex:99,
-        left:30,
-        right:0,
+        left:20,
+        right:20,
         bottom:10,
         borderWidth:1,
         borderColor:'#d3d3d3',
@@ -623,16 +855,17 @@ export default StyleSheet.create({
         paddingRight:5,
         paddingTop:5,
         paddingBottom:5,
-        width:59,
+        minWidth: '8%',
         borderRadius:38,
         fontSize:12,
         textAlign:'center',
       },
 
       serviceplan:{
-        fontSize:16,
+        fontSize:14,
         color:'#231f20',
         textAlign:'left',
+        maxWidth:'74%',
       },
 
       blockWrappergService:{
@@ -670,23 +903,12 @@ export default StyleSheet.create({
       },
 
       modalOverlay:{
-        backgroundColor:colors.black,
-        opacity:0.9,
+        // backgroundColor:'rgba(0,0,0,0.7)',
         width:dimensions.fullWidth,
         height:dimensions.fullHeight,
       },
 
-      modalWrapper:{
-        marginTop: 22, 
-        backgroundColor:colors.white,
-        opacity:1,
-        borderRadius:20,
-        margin:16,
-        paddingTop:20,
-        paddingBottom:20,
-        width:dimensions.fullWidth - 32,
-        height:dimensions.fullHeight - 130,
-      },
+     
 
       blockWrappergPlan:{
         position:'relative',
@@ -718,6 +940,7 @@ export default StyleSheet.create({
         position:'absolute',
         right:12,
       },
+
       LeftplanPart:{
         width:30,
       },
@@ -725,7 +948,7 @@ export default StyleSheet.create({
       footer:{
         position:'absolute',
         width:dimensions.fullWidth,
-        backgroundColor:'#f6f6ff',
+        // backgroundColor:'#f6f6ff',
         paddingTop:2, 
         left:0,
         bottom:0,
@@ -737,6 +960,18 @@ export default StyleSheet.create({
          paddingLeft:16,
          backgroundColor:'#f6f6ff',
        },
+       GroomingSelectWrapper:{
+        flex:1, 
+        paddingLeft:15,
+        paddingRight:15,
+        backgroundColor:'#f6f6ff',
+        bottom:0,
+      },
+      checkclick:{
+          position:'absolute',
+          right:-5,
+          top:0,
+      },
 
       heightSpacing:{
         height:70,
@@ -773,14 +1008,31 @@ export default StyleSheet.create({
         padding: 10,
         borderRadius:20,
       },
+
+      activeselectedtime:{
+        width: dimensions.fullWidth - 80,
+        marginBottom:20,
+        borderColor:'#222ba8',
+        borderWidth:1,
+        alignItems: 'center',
+        backgroundColor: '#222ba8',
+        padding: 10,
+        borderRadius:20,
+      },
+
+      textactivetime :{
+        color:'#fff',
+        fontSize:16,
+      },
+
       GdoneImage:{
         width:154,
         height:124,
         marginBottom:24,
       },
-      SelectVaccinationWrapper:{
 
-          width:'100%',
+      SelectVaccinationWrapper:{
+           width:'100%',
           flex:1,
           paddingLeft:10,
           paddingRight:10,
@@ -866,21 +1118,29 @@ export default StyleSheet.create({
       },
 
       confirmblock:{
-        flex:1, 
         width: dimensions.fullWidth - 30,  
         flexDirection: 'row', 
         backgroundColor: '#fff',
         marginLeft:15,
         marginRight:15,
         marginBottom:15,
-        shadowOffset:{ width: 20, height: 20, },
-        shadowColor: 'black',
-        shadowOpacity: 1.0,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.52,
+        shadowRadius: 2.22,
+        elevation: 3,
         borderRadius:6,
       },
 
       dateblocktext: {
         color:'#222ba8'
+      },
+
+      appointmentnamepricewrapper:{
+        flexDirection:'row',
       },
 
       confirmdate: {
@@ -891,8 +1151,8 @@ export default StyleSheet.create({
 
       appointdateblock:{
         backgroundColor:'#f2f2f2',
-        padding:10,
-        width:60,
+        padding:1,
+        width:70,
       
        },
 
@@ -914,6 +1174,7 @@ export default StyleSheet.create({
         fontSize:32,
         fontWeight: 'bold',
         color:'#222ba8',
+        textAlign:'center'
       },
       dateblocktext:{
         textAlign:'center',
@@ -924,15 +1185,44 @@ export default StyleSheet.create({
       appointmentproductname:{
         fontSize:16,
         color:'#231f20',
-        marginBottom:15,
+        marginBottom:10,
+      },
+
+      bottomwrapper:{
+        flex:1, 
+        justifyContent:'flex-end'
+      },
+
+      appointmentproductheading:{
+        fontSize:16,
+        color:'#231f20',
+        marginBottom:2,
       },
 
       appointmentproducttime: {
         fontSize:14,
         color:'#222ba8',
       },
+
+      appointmentproductnameprice: {
+        fontSize:14,
+        color:'#8d8d8d',
+      },
+
       deleteappointmenticon:{
         marginBottom: 15,
+      },
+      mr10:{
+          marginRight:10
+      },
+      appointmentdot:{
+        width:4,
+        height:4,backgroundColor:'#8d8d8d',
+        borderRadius:30,
+        marginLeft:10,
+        marginRight:5,
+        marginTop:8,
+
       },
 
       productprice:{
@@ -946,8 +1236,40 @@ export default StyleSheet.create({
         paddingTop:7,
         paddingBottom:7,
       },
+      mb10:{
+        marginBottom: 10,
+      },
       mb20:{
         marginBottom: 20,
+      },
+      mt20:{
+        marginTop: 20,
+      },
+      t40:{
+        top: 40,
+        position:'relative',
+      },
+      mt10:{
+        marginTop: 10,
+      },
+      ml10:{
+        marginLeft: 10,
+      },
+
+      ml20:{
+        marginLeft: 20,
+      },
+
+      m20:{
+        margin:20,
+      },
+      w50:{
+        width:'50%',
+      },
+      detailwrapper:{
+        width:'95%',
+        paddingLeft:15,
+        paddingLeft:15,
       },
       picker:{
           borderBottomColor:'#e1e1e1',
@@ -966,10 +1288,217 @@ export default StyleSheet.create({
         bottom:16,
         fontSize:16,
         color:'#8d8d8d',
+        zIndex:99,
       },
       mainwrapper:{
        width:'98%' , marginLeft: 10,
-      }
+      },
+     
+      groomingbg:{
+        backgroundColor:'#cdf0f3',
+        width:'100%',
+        height:119,
+        padding:15,
+        borderRadius:12,
+        justifyContent:'center',
+        alignItems:'center'
+      },
+      groomingthumbnail:{
+        width:88,
+        height:80,
+      },
 
+      confirmblockAction:{
+         flexDirection:'row',
+          borderColor:'#eee', // if you need 
+          borderWidth:1,
+          shadowColor: '#eee',
+          overflow:'hidden',
+          shadowRadius: 20,
+          shadowOpacity: 50,
+          backgroundColor:'#fff',
+          top:-10,
+          borderRadius:6,
+      },
 
-});  
+      appointmentprodctname:{
+        fontSize:14, 
+        color:'#8d8d8d'
+      },
+
+      confirmproductwrapper:{
+        width:dimensions.fullWidth - 40,
+        marginLeft:20,
+      },
+      ratereviewproductwrapper:{
+        width:dimensions.fullWidth - 40,
+        marginLeft:20,
+        marginTop:-20,
+      },
+
+      centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 22,
+      },
+
+      modalWrapper:{
+        margin: 0,
+        width:'100%',
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 10,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+      },
+        containerkeyboard: {
+        justifyContent: 'center',
+        backgroundColor: '#ecf0f1',
+        padding: 8,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
+      modalView: {
+        margin: 0,
+        width:'100%',
+        backgroundColor: "white",
+        borderRadius: 10,
+        padding: 5,
+        alignItems: "center",
+        justifyContent:'flex-end',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5
+      },
+      bottomviewmodal:{
+        backgroundColor:'#000',
+      },
+      openButton: {
+        backgroundColor: "#F194FF",
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2
+      },
+      textStyle: {
+        color: "white",
+        fontWeight: "bold",
+        textAlign: "center"
+      },
+      modalText: {
+        marginBottom: 15,
+        textAlign: "center"
+      },
+
+      groomingpayment:{
+          padding:20,
+      },
+      leftIconpayment:{
+        position:'absolute',
+        left:0,
+        width: 13, height: 24
+      },
+
+      leftIconappointment:{
+        position:'relative',
+        left: 10,
+        width: 13, height: 24
+      },
+
+      leftIcon:{
+        position:'relative',
+        width: 13, height: 24
+      },
+
+      lefticonspacing:{
+        paddingLeft:30,
+      },
+      headerWrapper:{
+        width:'100%',
+        position:'relative',
+        paddingBottom:20,
+        paddingTop:20,
+      },
+      headerbackpayment:{
+        flexDirection:'row',
+        width:'100%',
+        alignItems:'center',
+        marginBottom:20,
+      },
+      cardpaymentwrapper:{
+        borderRadius: 20,
+        width:'100%',
+        padding:15,
+      },
+      paymentproductblock:{
+          flexDirection:'row',
+          width:'100%',
+          marginBottom:20,
+      },
+
+      cardpaymentheading:{
+          fontSize:13,
+          textTransform:"uppercase",
+          color:'#222ba8',
+          marginBottom:10,
+          fontWeight:'bold',
+      },
+
+      paymenttitle:{
+          color:'#8d8d8d',
+          fontSize:14,
+          marginBottom:0
+      },
+
+      paymentsubtitle:{
+        color:'#231f20',
+        fontSize:16,
+      },
+
+      paymentproductview:{
+          width:'60%'
+      },
+      paymentproductviewc:{
+        width:'40%'
+    },
+    paymentproductviewA:{
+      width:'45%'
+    },
+    paymentproductviewAP:{
+      width:'55%'
+    },
+      paymenttotal:{
+        borderTopColor:'#eeeeee',
+        borderTopWidth:2,
+        marginTop:0,
+        paddingTop:15,
+        flexDirection:'row',
+          width:'100%',
+      },
+      img:{
+        height:20,
+        width: 20
+    },
+    btn:{
+        flexDirection: 'row'
+    },
+    paymentmode:{
+      color:'#231f20',
+      fontSize:12,
+      marginTop:15,
+      marginBottom:15,
+    },
+
+  });

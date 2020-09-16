@@ -1,23 +1,38 @@
 import * as React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View,BackHandler,Alert } from 'react-native';
 import { SplashScreen } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import BottomTabNavigator from './navigation/BottomTabNavigator';
 import useLinking from './navigation/useLinking';
 import GroomingScreen from "./screens/GroomingScreen";
 import HomeScreen from "./screens/HomeScreen";
+import AppointmentsScreen from "./screens/AppointmentsScreen";
+
+import BottomMenu from './components/BottomMenu';
+import { dimensions } from './assets/styles/base';
 
 const Stack = createStackNavigator();
+
+String.prototype.title = function () {
+    return this.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+};
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = React.useState(false);
   const [initialNavigationState, setInitialNavigationState] = React.useState();
   const containerRef = React.useRef();
-  const { getInitialState } = useLinking(containerRef);
+  const { getInitialState } = useLinking(containerRef)
+    BackHandler.addEventListener('hardwareBackPress', function() {
+        // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+        // Typically you would use the navigator here to go to the last state.
+        alert('kkk')
+
+
+        return false;
+    });
 
   // Load any resources or data that we need prior to rendering the app
   React.useEffect(() => {
@@ -43,6 +58,26 @@ export default function App(props) {
     }
 
     loadResourcesAndDataAsync();
+
+      // const backAction = () => {
+      //     Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      //         {
+      //             text: "Cancel",
+      //             onPress: () => null,
+      //             style: "cancel"
+      //         },
+      //         { text: "YES", onPress: () => BackHandler.exitApp() }
+      //     ]);
+      //     return true;
+      // };
+      //
+      // const backHandler = BackHandler.addEventListener(
+      //     "hardwareBackPress",
+      //     backAction
+      // );
+      //
+      // return () => backHandler.remove();
+
   }, []);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
@@ -53,11 +88,16 @@ export default function App(props) {
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
 
           <NavigationContainer>
-              <Stack.Navigator initialRouteName="Home">
+              <Stack.Navigator initialRouteName="Home" screenOptions={{
+                  headerShown: false
+              }}>
+                
                   <Stack.Screen name="Home" component={HomeScreen} />
-                  <Stack.Screen name="Grooming" component={GroomingScreen} />
+                  <Stack.Screen name="Grooming" component={GroomingScreen} /> 
+                  <Stack.Screen name="Appointment" component={AppointmentsScreen} />
               </Stack.Navigator>
           </NavigationContainer>
+           <BottomMenu></BottomMenu>
 
 
         {/*<NavigationContainer ref={containerRef} initialState={initialNavigationState}>*/}
@@ -74,5 +114,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    width:dimensions.fullWidth,
+    height:dimensions.fullHeight
   },
 });

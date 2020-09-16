@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View , ScrollView} from 'react-native';
+import { Text, View , ScrollView,Alert} from 'react-native';
 import { Card, CardItem, Body, Button} from "native-base";
 import { Ionicons } from '@expo/vector-icons';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
@@ -26,6 +26,13 @@ export default class GroomingSelectDate extends Component {
       onDayPress = (day) => {
         this.setState({selected: day.dateString});
       }
+      next(){
+        if(!this.state.selected){
+            Alert.alert('Please select a date')
+            return
+        }
+          this.props.next(new Date(this.state.selected))
+      }
     
       render() {
         return (
@@ -35,35 +42,23 @@ export default class GroomingSelectDate extends Component {
             <Calendar
               style={styles.calendar}
               testID={testIDs.calendars.LAST}
-              current={'2012-05-16'}
-              minDate={'2012-05-10'}
-              maxDate={'2012-05-29'}
-              firstDay={1}
+              // current={'2012-05-16'}
+              minDate={new Date()}
+              // maxDate={'2012-05-29'}
+              onDayPress={this.onDayPress}
               markedDates={{
-                '2012-05-23': {selected: true,  disableTouchEvent: false},
-                     }}
-                     theme={{
-                        dayTextColor: '#333',
-                        todayTextColor: 'white',
-                        selectedDayTextColor: 'white',
-                        monthTextColor: '#333',
-                        indicatorColor: '#222ba8',
-                        selectedDayBackgroundColor: '#222ba8',
-                        arrowColor: '#222ba8',
-                        'stylesheet.calendar.header': {
-                          week: {
-                            marginTop: 5,
-                            flexDirection: 'row',
-                            justifyContent: 'space-between'
-                          }
-                        }
-                      }}
-             
+                  [this.state.selected]: {
+                      selected: true,
+                  }
+              }}
+              
+              theme={{selectedDayBackgroundColor: '#222ba8',
+              todayTextColor: '#222ba8', arrowColor: '#222ba8'}}
             />
 
            
-            <Button style={styles.primarybtn}>
-                                <Text  style={styles.colorPrimarybtn}>Nexts</Text>
+            <Button style={styles.primarybtn} onPress={()=>this.next()}>
+                                <Text  style={styles.colorPrimarybtn}>Next</Text>
                         </Button> 
                 </View>
             
